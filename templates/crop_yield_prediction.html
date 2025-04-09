@@ -1,0 +1,229 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Crop Yield Prediction
+{% endblock title %}
+{% block header_class %}bg-dark{% endblock %}
+
+{% block body %}
+<!-- About Crop Yield Prediction Section -->
+<section id="crop-yield" class="about section">
+  <div class="container section-title" data-aos="fade-up" style='margin-top:60px'>
+    <h2>Crop Yield Prediction</h2>
+    <p><span>Learn More</span> <span class="description-title">About Yield Estimation</span></p>
+  </div>
+
+  <div class="container">
+    <div class="row gy-5">
+      <div class="content col-xl-5 d-flex flex-column" data-aos="fade-up" data-aos-delay="100">
+        <h3>AI-Powered Yield Estimator</h3>
+        <p>
+          Our crop yield prediction system uses machine learning models to estimate the expected yield based on key parameters like soil nutrients, weather, crop type, and season. Plan better and increase productivity.
+        </p>
+        <a href="#" class="about-btn align-self-center align-self-xl-start"><span>Know More</span> <i class="bi bi-chevron-right"></i></a>
+      </div>
+
+      <div class="col-xl-7" data-aos="fade-up" data-aos-delay="200">
+        <div class="row gy-4">
+          <div class="col-md-6 icon-box position-relative">
+            <i class="bi bi-speedometer2"></i>
+            <h4><a href="{% url 'crop_yield_prediction' %}" class="stretched-link">Accurate Yield Estimation</a></h4>
+            <p>Know how much crop you can expect before the harvest using historical and real-time inputs.</p>
+          </div>
+          <div class="col-md-6 icon-box position-relative">
+            <i class="bi bi-cloud-sun"></i>
+            <h4><a href="{% url 'crop_yield_prediction' %}" class="stretched-link">Weather-Smart Forecasting</a></h4>
+            <p>Integrate climate and soil data to improve yield accuracy and planning efficiency.</p>
+          </div>
+          <div class="col-md-6 icon-box position-relative">
+            <i class="bi bi-box-seam"></i>
+            <h4><a href="{% url 'crop_yield_prediction' %}" class="stretched-link">Better Planning</a></h4>
+            <p>Use predicted yield values to manage storage, labor, and market strategy.</p>
+          </div>
+          <div class="col-md-6 icon-box position-relative">
+            <i class="bi bi-robot"></i>
+            <h4><a href="{% url 'crop_yield_prediction' %}" class="stretched-link">Smart AI Predictions</a></h4>
+            <p>AI analyzes past yield records and growing conditions for your region to forecast results.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section -->
+<section id="yield-prediction" class="crop-recommendation py-5">
+    <div class="container text-center" data-aos="fade-up">
+      <h2>🌾 Crop Yield Prediction</h2>
+      <p>Enter agricultural and environmental details to estimate the crop yield. 📈</p>
+  
+      {% if predicted_yield %}
+      <div class="result-card mt-4 p-4">
+        <h4>Estimated Yield: <strong>{{ predicted_yield }} tonnes/hectare</strong></h4>
+        <div class="emoji display-4">📊</div>
+      </div>
+      {% endif %}
+  
+      {% if error %}
+      <div class="alert alert-danger mt-3">{{ error }}</div>
+      {% endif %}
+  
+      <form method="POST" action="" class="mt-4" data-aos="fade-up" data-aos-delay="100">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="Year">Year</label>
+            <input type="number" name="Year" class="form-control" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="average_rainfall">Average Rainfall (mm)</label>
+            <input type="number" name="average_rainfall" class="form-control" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="pesticides_tonnes">Pesticides Used (tonnes)</label>
+            <input type="number" step="0.01" name="pesticides_tonnes" class="form-control" required>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="avg_temp">Average Temperature (°C)</label>
+            <input type="number" step="0.1" name="avg_temp" class="form-control" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="Area">Area</label>
+            <select name="Area" class="form-control" required>
+              <option value="" disabled selected>Select Area</option>
+              {% for area in areas %}
+              <option value="{{ area }}">{{ area }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="Item">Crop</label>
+            <select name="Item" class="form-control" required>
+              <option value="" disabled selected>Select Crop</option>
+              {% for item in items %}
+              <option value="{{ item }}">{{ item }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+  
+        <button type="submit" class="btn btn-success px-4">📈 Predict Yield</button>
+        <div class="text-center mt-3">
+          <p>Need help? <a href="{% url 'assistant' %}">🤖 Ask PlantXpert-Assistant</a></p>
+        </div>
+      </form>
+    </div>
+  </section>
+  
+
+  <section id="yield-faq" class="faq section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Frequently Asked Questions</h2>
+      <p><span>Yield Prediction</span> <span class="description-title">System Help</span></p>
+    </div><!-- End Section Title -->
+  
+    <div class="container">
+  
+      <div class="row justify-content-center">
+  
+        <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+  
+          <div class="faq-container">
+  
+            <div class="faq-item faq-active">
+              <h3>What is the Yield Prediction System?</h3>
+              <div class="faq-content">
+                <p>It’s an AI-powered tool that estimates the crop yield based on factors like climate, pesticide usage, and crop type.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>What input details are required?</h3>
+              <div class="faq-content">
+                <p>You need to provide the Year, Average Rainfall, Pesticides Used (in tonnes), Average Temperature, Area (region), and Crop Item.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>How does the system predict yield?</h3>
+              <div class="faq-content">
+                <p>It uses a machine learning model trained on historical agricultural data to forecast the expected yield based on your inputs.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>Do I need to select specific crops?</h3>
+              <div class="faq-content">
+                <p>Yes, you need to choose the crop type (Item) for which you want to estimate the yield, as the model is crop-specific.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>Does it support all regions?</h3>
+              <div class="faq-content">
+                <p>Yes, it supports a wide range of regions. Make sure to choose your area correctly for accurate predictions.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>Is login required to use this feature?</h3>
+              <div class="faq-content">
+                <p>Yes, login is mandatory to access the yield prediction tool and to store your results for future reference.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>How accurate is the yield prediction?</h3>
+              <div class="faq-content">
+                <p>Predictions are based on a Random Forest model trained on extensive data. While highly accurate, results may vary based on real-world factors.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>Can I compare yields of different crops?</h3>
+              <div class="faq-content">
+                <p>Not directly, but you can input different crop types separately and compare the results manually.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>Is the prediction stored?</h3>
+              <div class="faq-content">
+                <p>Yes, after prediction, your yield estimate is stored temporarily in your session, and you can view it instantly.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>Where can I get help if it’s not working?</h3>
+              <div class="faq-content">
+                <p>You can contact <strong>support@plantxpert.com</strong> or use the PlantXpert Assistant chatbot for quick troubleshooting.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+          </div>
+  
+        </div><!-- End Faq Column -->
+  
+      </div>
+  
+    </div>
+  
+  </section><!-- /Yield Prediction FAQ Section -->
+  
+{% endblock body %}
+  

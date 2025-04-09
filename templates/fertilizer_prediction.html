@@ -1,0 +1,254 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Fertilizers Recommendation
+{% endblock title %}
+{% block header_class %}bg-dark{% endblock %}
+
+{% block body %}
+<!-- About Fertilizer Requirement Prediction Section -->
+<section id="fertilizer-requirement" class="about section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up" style='margin-top:60px'>
+      <h2>Fertilizer Requirement</h2>
+      <p><span>Learn More</span> <span class="description-title">About Fertilizer Prediction<br></span></p>
+    </div><!-- End Section Title -->
+  
+    <div class="container">
+  
+      <div class="row gy-5">
+  
+        <div class="content col-xl-5 d-flex flex-column" data-aos="fade-up" data-aos-delay="100">
+          <h3>Smart Fertilizer Advisor</h3>
+          <p>
+            Our AI-based Fertilizer Prediction tool guides farmers with accurate fertilizer recommendations based on soil nutrients, crop type, and area. Achieve better crop health, reduce costs, and avoid over-fertilization.
+          </p>
+          <a href="#" class="about-btn align-self-center align-self-xl-start"><span>Know More</span> <i class="bi bi-chevron-right"></i></a>
+        </div>
+  
+        <div class="col-xl-7" data-aos="fade-up" data-aos-delay="200">
+          <div class="row gy-4">
+  
+            <div class="col-md-6 icon-box position-relative">
+              <i class="bi bi-bezier2"></i>
+              <h4><a href="{% url 'fertilizer_prediction' %}" class="stretched-link">Balanced Nutrition</a></h4>
+              <p>Ensure the right balance of Nitrogen (N), Phosphorus (P), and Potassium (K) for healthier crop growth.</p>
+            </div><!-- Icon-Box -->
+  
+            <div class="col-md-6 icon-box position-relative">
+              <i class="bi bi-geo-alt"></i>
+              <h4><a href="{% url 'fertilizer_prediction' %}" class="stretched-link">Soil-Specific Advice</a></h4>
+              <p>Get recommendations tailored to your soil type and nutrient levels for maximum effectiveness.</p>
+            </div><!-- Icon-Box -->
+  
+            <div class="col-md-6 icon-box position-relative">
+              <i class="bi bi-bar-chart-line"></i>
+              <h4><a href="{% url 'fertilizer_prediction' %}" class="stretched-link">Improved Yield</a></h4>
+              <p>Boost your farm's productivity by supplying crops with the right fertilizers at the right time.</p>
+            </div><!-- Icon-Box -->
+  
+            <div class="col-md-6 icon-box position-relative">
+              <i class="bi bi-cpu-fill"></i>
+              <h4><a href="{% url 'fertilizer_prediction' %}" class="stretched-link">AI-Based Accuracy</a></h4>
+              <p>Make informed decisions with predictions from machine learning models trained on extensive soil and crop data.</p>
+            </div><!-- Icon-Box -->
+  
+          </div>
+        </div>
+  
+      </div>
+  
+    </div>
+  
+</section><!-- /About Fertilizer Requirement Prediction Section -->
+  
+
+<!-- Fertilizer Requirement Prediction Section -->
+<section id="fertilizer-requirement" class="crop-recommendation py-5">
+    <div class="container text-center" data-aos="fade-up">
+      <h2>🧪 Fertilizer Requirement Prediction</h2>
+      <p>Enter crop, soil, and environmental data to get the recommended fertilizer. 🌿</p>
+  
+      {% if prediction %}
+      <div class="result-card mt-4 p-4">
+        <h4>Recommended Fertilizer for <strong>{{ crop|title }}</strong> in <strong>{{ soil|title }}</strong> soil: <strong>{{ prediction }}</strong></h4>
+        <div class="emoji display-4">{{ emoji }}</div>
+      </div>
+      {% endif %}
+  
+      {% if error %}
+      <div class="alert alert-danger mt-3">{{ error }}</div>
+      {% endif %}
+  
+      <form method="POST" action="" class="mt-4" data-aos="fade-up" data-aos-delay="100">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <label for="nitrogen">Nitrogen (N)</label>
+            <input type="number" name="nitrogen" step="0.1" class="form-control" required>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="phosphorus">Phosphorus (P)</label>
+            <input type="number" name="phosphorus" step="0.1" class="form-control" required>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="potassium">Potassium (K)</label>
+            <input type="number" name="potassium" step="0.1" class="form-control" required>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="acre">Land Area (in acres)</label>
+            <input type="number" name="acre" step="0.1" class="form-control" required>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <label for="temperature">Temperature (°C)</label>
+            <input type="number" name="temperature" step="0.1" class="form-control" required>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="humidity">Humidity (%)</label>
+            <input type="number" name="humidity" step="0.1" class="form-control" required>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="crop">Crop</label>
+            <select name="crop" class="form-control" required>
+              <option value="" disabled selected>Select Crop</option>
+              {% for c in crop_types %}
+              <option value="{{ c }}">{{ c|title }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="soil">Soil Type</label>
+            <select name="soil" class="form-control" required>
+              <option value="" disabled selected>Select Soil</option>
+              {% for s in soil_types %}
+              <option value="{{ s }}">{{ s|title }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+  
+        <button type="submit" class="btn btn-success px-4">🧪 Predict Fertilizer</button>
+        <div class="text-center mt-3">
+          <p>Need help? <a href="{% url 'assistant' %}">🤖 Ask PlantXpert-Assistant</a></p>
+        </div>
+      </form>
+    </div>
+</section>
+  
+
+  
+
+<section id="fertilizer-faq" class="faq section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Frequently Asked Questions</h2>
+      <p><span>Fertilizer Recommendation</span> <span class="description-title">System Help</span></p>
+    </div><!-- End Section Title -->
+  
+    <div class="container">
+  
+      <div class="row justify-content-center">
+  
+        <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+  
+          <div class="faq-container">
+  
+            <div class="faq-item faq-active">
+              <h3>What is the Fertilizer Prediction System?</h3>
+              <div class="faq-content">
+                <p>It’s an AI-based recommendation system that predicts the most suitable fertilizer for your crop based on soil nutrients, weather, crop type, and land size.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>What input details are required?</h3>
+              <div class="faq-content">
+                <p>You need to provide Nitrogen (N), Phosphorus (P), Potassium (K) levels in the soil, Temperature, Humidity, Crop type, Soil type, and Acreage.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>How does the system recommend fertilizer?</h3>
+              <div class="faq-content">
+                <p>It uses a machine learning model (Decision Tree) trained on agricultural data to suggest the most effective fertilizer based on your inputs.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>Why do I need to enter both crop and soil type?</h3>
+              <div class="faq-content">
+                <p>Each crop and soil type has specific nutrient requirements. The model uses these to give tailored fertilizer recommendations.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>Can I use this system for all crops?</h3>
+              <div class="faq-content">
+                <p>The system supports major crops like wheat, rice, maize, tomato, potato, banana, and more listed in the crop selector.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>Is login required to use this feature?</h3>
+              <div class="faq-content">
+                <p>Yes, login is required to access the fertilizer prediction system to maintain session security and personalized access.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>How accurate are the fertilizer recommendations?</h3>
+              <div class="faq-content">
+                <p>The recommendations are derived from a trained decision tree model. They offer good accuracy, but real-time conditions may affect outcomes.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>Is the fertilizer type shown in a readable format?</h3>
+              <div class="faq-content">
+                <p>Yes, the recommended fertilizer is displayed in a human-readable name like "Urea", "DAP", or "NPK", based on your inputs.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>Is my data stored permanently?</h3>
+              <div class="faq-content">
+                <p>No, the prediction is stored temporarily in your session to show the result. It’s not saved unless integrated with a user history system.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>Where can I get help if I face issues?</h3>
+              <div class="faq-content">
+                <p>Contact <strong>support@plantxpert.com</strong> or use the built-in PlantXpert Assistant to get help with prediction errors or input guidance.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+          </div>
+  
+        </div><!-- End Faq Column -->
+  
+      </div>
+  
+    </div>
+  
+</section><!-- /Fertilizer Prediction FAQ Section -->
+  
+
+  
+{% endblock body %}
+  

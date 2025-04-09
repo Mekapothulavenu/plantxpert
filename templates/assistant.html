@@ -1,0 +1,205 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Assistant
+{% endblock title %}
+{% block header_class %}bg-dark{% endblock %}
+
+{% block body %}
+<!-- PlantXpert Assistant Section -->
+<section id="assistant" class="about section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up"  style="margin-top: 60px;">
+      <h2>Assistant</h2>
+      <p><span>Discover</span> <span class="description-title">PlantXpert Assistant</span></p>
+    </div><!-- End Section Title -->
+  
+    <div class="container">
+  
+      <div class="row gy-5">
+  
+        <div class="content col-xl-5 d-flex flex-column" data-aos="fade-up" data-aos-delay="100">
+          <h3>Your Farming AI Companion</h3>
+          <p>
+            The PlantXpert Assistant offers smart, AI-driven support to help you with crop guidance, plant disease solutions, weather-based suggestions, and more—all in your own language.
+          </p>
+          <a href="#plantxpert-chat" class="about-btn align-self-center align-self-xl-start">
+            <span>Start Chatting</span> <i class="bi bi-chevron-right"></i>
+          </a>
+        </div>
+  
+        <div class="col-xl-7" data-aos="fade-up" data-aos-delay="200">
+          <div class="row gy-4">
+  
+            <div class="col-md-6 icon-box position-relative">
+              <i class="bi bi-chat-dots"></i>
+              <h4><a href="#plantxpert-chat" class="stretched-link">Smart Conversations</a></h4>
+              <p>Chat in real-time with our AI about diseases, fertilizers, crop care, and more—anytime, anywhere.</p>
+            </div>
+  
+            <div class="col-md-6 icon-box position-relative">
+              <i class="bi bi-gear"></i>
+              <h4><a href="#plantxpert-chat" class="stretched-link">Agri Services</a></h4>
+              <p>Access services like fertilizer suggestions, pesticide info, and crop-wise recommendations powered by AI.</p>
+            </div>
+  
+            <div class="col-md-6 icon-box position-relative">
+              <i class="bi bi-question-circle"></i>
+              <h4><a href="#plantxpert-chat" class="stretched-link">Quick Queries</a></h4>
+              <p>Ask anything related to farming—from soil nutrients to harvesting tips—and get instant answers.</p>
+            </div>
+  
+            <div class="col-md-6 icon-box position-relative">
+              <i class="bi bi-lightning"></i>
+              <h4><a href="#plantxpert-chat" class="stretched-link">Real-Time Help</a></h4>
+              <p>Our assistant is trained to respond with fast and relevant help based on live weather and farming trends.</p>
+            </div>
+  
+          </div>
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  </section><!-- /PlantXpert Assistant Section -->
+   
+<section id="plantxpert-chat" class="py-4">
+    <div class="container">
+      <div class="chat-container shadow-lg">
+        <h4 class="text-success text-center mb-3">
+          <i class="bi bi-robot icon"></i> PlantXpert Assistant
+        </h4>
+  
+        <div class="chat-box" id="chat-box">
+          <div class='bot-message'>
+            <i class="bi bi-robot icon"></i>
+            <span>Hello! 👋 What is your name?</span>
+          </div>
+        </div>
+  
+        <p class="typing-indicator" id="typing-indicator">PlantXpert is thinking...</p>
+  
+        <form id="chat-form" class="chat-form mt-3"
+              data-url="{% url 'send_message' %}" data-csrf="{{ csrf_token }}">
+          <div class="input-group">
+            <textarea id="user_message" class="form-control" placeholder="Ask your farming question..." rows="1"></textarea>
+            <button class="btn btn-glow" type="submit">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+</section>
+
+<!-- Assistant FAQ Section -->
+<section id="assistant-faq" class="faq section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Frequently Asked Questions</h2>
+      <p><span>PlantXpert</span> <span class="description-title">Assistant Help</span></p>
+    </div><!-- End Section Title -->
+  
+    <div class="container">
+  
+      <div class="row justify-content-center">
+  
+        <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+  
+          <div class="faq-container">
+  
+            <div class="faq-item faq-active">
+              <h3>What is the PlantXpert Assistant?</h3>
+              <div class="faq-content">
+                <p>The PlantXpert Assistant is an AI-powered chatbot that offers smart farming advice, crop care guidance, and real-time answers to your agricultural queries.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>What can I ask the assistant?</h3>
+              <div class="faq-content">
+                <p>You can ask about fertilizer recommendations, pesticide usage, crop-specific guidance, weather-based suggestions, and general plant care tips.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>Is voice input or multi-language support available?</h3>
+              <div class="faq-content">
+                <p>Currently, the assistant supports only text-based queries in English. We are working on expanding to voice and multilingual features in future updates.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>Do I need to register to use the assistant?</h3>
+              <div class="faq-content">
+                <p>Yes, user registration is required to access the assistant, so we can personalize your experience and store chat history for your reference.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>Is the assistant available offline?</h3>
+              <div class="faq-content">
+                <p>No, the assistant requires an internet connection to function, as it relies on cloud-based AI models for smart responses.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>Can the assistant help with fertilizer and pesticide suggestions?</h3>
+              <div class="faq-content">
+                <p>Yes, the assistant can recommend the most suitable fertilizers and pesticides based on your crop type and symptoms shared.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>How does it provide weather-based suggestions?</h3>
+              <div class="faq-content">
+                <p>The assistant uses real-time weather data to offer tips on irrigation, crop care, and disease prevention based on current conditions.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>Can I delete chat messages or clear my chat history?</h3>
+              <div class="faq-content">
+                <p>Yes, you can delete individual messages or clear your full chat history using the available options inside the assistant chat interface.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>Is the assistant response time fast?</h3>
+              <div class="faq-content">
+                <p>Yes, the assistant responds in real-time using a powerful AI model to ensure fast, accurate, and helpful replies.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>How do I contact support for assistant-related issues?</h3>
+              <div class="faq-content">
+                <p>If you face issues, reach out via email at <strong>support@plantxpert.com</strong> or use the chatbot for quick help.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+          </div>
+  
+        </div><!-- End Faq Column -->
+  
+      </div>
+  
+    </div>
+  
+</section><!-- /Assistant FAQ Section -->
+  
+{% endblock body %}
+    
+    

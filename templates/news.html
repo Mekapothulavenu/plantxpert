@@ -1,0 +1,216 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Agriculture News
+{% endblock title %}
+{% block header_class %}bg-dark{% endblock %}
+
+
+{% block body %}
+     <!-- Agriculture News Section -->
+     <section id="agri" class="agri section">
+
+      <div class="container section-title" data-aos="fade-up">
+          <h2>Latest Agriculture News</h2>
+          <p><span>Stay Updated with</span> <span class="description-title">Farming & Agri-Tech Trends</span></p>
+      </div>
+
+      <div class="container">
+
+          <div class="row gy-5">
+
+              <div class="content col-xl-5 d-flex flex-column" data-aos="fade-up" data-aos-delay="100">
+                  <h3>Real-Time Farming News</h3>
+                  <p>
+                      Get the latest updates on agriculture policies, climate impact, sustainable farming, and innovations in agri-tech.
+                  </p>
+                  <form method="GET" action="{% url 'news' %}" class="mb-4">
+                    <input type="text" name="keyword" class="form-control" placeholder="Search agriculture news..." value="{{ search_query }}" required>
+                    <button type="submit" class="btn btn-success mt-2">Search News</button>
+                  </form>
+                
+              </div>
+
+              <div class="col-xl-7" data-aos="fade-up" data-aos-delay="200">
+                  <div class="row gy-4">
+
+                      <div class="col-md-6 icon-box position-relative">
+                          <i class="bi bi-globe"></i>
+                          <h4><a href="https://www.worldbank.org/en/topic/agriculture" class="stretched-link">Global Agri Trends</a></h4>
+                          <p>Explore the latest trends and developments in the global agricultural sector.</p>
+                      </div>
+
+                      <div class="col-md-6 icon-box position-relative">
+                          <i class="bi bi-graph-up"></i>
+                          <h4><a href="https://agmarknet.gov.in/" class="stretched-link">Market Updates</a></h4>
+                          <p>Stay informed about crop prices, supply-demand trends, and market fluctuations.</p>
+                      </div>
+
+                      <div class="col-md-6 icon-box position-relative">
+                          <i class="bi bi-lightbulb"></i>
+                          <h4><a href="https://www.agritechtomorrow.com/" class="stretched-link">Agri-Tech Innovations</a></h4>
+                          <p>Learn about new technologies like AI in farming, smart irrigation, and precision agriculture.</p>
+                      </div>
+
+                      <div class="col-md-6 icon-box position-relative">
+                          <i class="bi bi-bookmark-star"></i>
+                          <h4><a href="https://www.india.gov.in/topics/agriculture" class="stretched-link">Govt. Policies & Schemes</a></h4>
+                          <p>Find out about government subsidies, schemes, and policies that benefit farmers.</p>
+                      </div>
+
+                  </div>
+              </div>
+
+          </div>
+
+      </div>
+
+    </section>
+
+<!-- Agriculture News Section -->
+<section id="agri-news" class="agri-news section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+      <h2>Latest Agriculture News</h2>
+      <p><span>Stay Updated with</span> <span class="description-title">Farming & Agri-Tech Trends</span></p>
+  </div>
+  
+  <div class="container">
+      <div class="row gy-4 justify-content-center"> <!-- Dynamic Grid Layout -->
+
+        {% for article in news_list %}
+        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:'1' }}00">
+            <div class="news-card">
+                <div class="news-img">
+                    <img src="{{ article.image_url }}" class="img-fluid" alt="News Image">
+                </div>
+                <div class="news-info">
+                    <h4><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></h4>
+                    <p>{{ article.description|truncatewords:20 }}</p>
+                    <small class="text-muted">Published on {{ article.published_at }}</small>
+                    <p class="news-source"><strong>Source:</strong> {{ article.source }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">No articles found. Try a different keyword.</p>
+        {% endfor %}
+        
+
+      </div>
+  </div>
+
+</section>
+
+
+
+    <!-- Faq Section -->
+    <section id="faq" class="faq section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Frequently Asked Questions</h2>
+        <p><span>PlantXpert</span> <span class="description-title">Help</span></p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row justify-content-center">
+
+          <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="faq-container">
+
+              <div class="faq-item faq-active">
+                <h3>What is PlantXpert?</h3>
+                <div class="faq-content">
+                  <p>PlantXpert is an AI-powered platform designed to detect plant diseases, provide weather updates, share agricultural news, and connect users with nearby agri-shops.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>How does the plant disease detection feature work?</h3>
+                <div class="faq-content">
+                  <p>Users can upload an image of a plant, and our AI model analyzes it to detect possible diseases and suggest precautionary measures.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>Is PlantXpert free to use?</h3>
+                <div class="faq-content">
+                  <p>Yes, the basic features such as plant disease detection, weather updates, chatbot support, and agri-news are free for all users.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>How accurate is the AI in detecting plant diseases?</h3>
+                <div class="faq-content">
+                  <p>Our AI model is trained on a vast dataset and provides high accuracy, but we recommend consulting an agricultural expert for confirmation.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>How can I find nearby agricultural shops?</h3>
+                <div class="faq-content">
+                  <p>Navigate to the "Agri Shops" section to view nearby stores, along with their locations on Google Maps.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>Does PlantXpert provide weather updates?</h3>
+                <div class="faq-content">
+                  <p>Yes, we fetch real-time weather data from the OpenWeather API to help farmers make better agricultural decisions.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>How do I reset my password if I forget it?</h3>
+                <div class="faq-content">
+                  <p>Click on "Forgot Password" on the login page, enter your email, and follow the instructions sent to your inbox to reset your password.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>Can I get recommendations for plant care and disease prevention?</h3>
+                <div class="faq-content">
+                  <p>Yes, based on disease detection, PlantXpert provides precautionary measures and best practices for plant care.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>How can I stay updated with the latest agricultural news?</h3>
+                <div class="faq-content">
+                  <p>Our news section fetches real-time agricultural updates from trusted sources via NewsAPI.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>How do I contact support if I have an issue?</h3>
+                <div class="faq-content">
+                  <p>You can reach out to us via our chatbot or email <strong>support@plantxpert.com</strong> for assistance.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+            </div>
+
+          </div><!-- End Faq Column-->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Faq Section -->
+
+{% endblock body %}
+  

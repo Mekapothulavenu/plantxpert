@@ -1,0 +1,230 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Agriculture Shops Nearby Locations
+{% endblock title %}
+{% block header_class %}bg-dark{% endblock %}
+
+
+{% block body %}
+  <!-- Agri Shops Section -->
+<section id="agri-shops" class="agri-shops section">
+
+  <div class="container section-title" data-aos="fade-up"  style="margin-top: 60px;">
+      <h2>Nearby Agriculture Shops</h2>
+      <p><span>Find</span> <span class="description-title">Trusted Agri Suppliers Near You</span></p>
+  </div>
+
+  <div class="container">
+      <div class="row gy-5">
+
+          <div class="content col-xl-5 d-flex flex-column" data-aos="fade-up" data-aos-delay="100">
+              <h3>Find Essential Farming Supplies</h3>
+              <p>
+                  Discover agricultural supply stores offering seeds, fertilizers, tools, and equipment near your location.
+              </p>
+              
+              <!-- Search Form with Location & Shop Type Dropdown -->
+              <form method="GET" action="{% url 'agrishops' %}" class="mb-4">
+                <label for="location">Enter Location:</label>
+                <input type="text" id="location" name="location" class="form-control" placeholder="Search by location..." value="{{ search_query }}" required>
+
+                <label for="shop_type" class="mt-2">Select Shop Type:</label>
+                <select id="shop_type" name="shop_type" class="form-control">
+                  <option value="">All Shops</option>
+                  <option value="seeds" {% if shop_type == 'seeds' %}selected{% endif %}>Seed Shop</option>
+                  <option value="fertilizers" {% if shop_type == 'fertilizers' %}selected{% endif %}>Fertilizer Shop</option>
+                  <option value="pesticides" {% if shop_type == 'pesticides' %}selected{% endif %}>Pesticide Shop</option>
+                  <option value="tools" {% if shop_type == 'tools' %}selected{% endif %}>Agriculture Tools Store</option>
+                  <option value="equipment" {% if shop_type == 'equipment' %}selected{% endif %}>Farm Equipment Store</option>
+                  <option value="nursery" {% if shop_type == 'nursery' %}selected{% endif %}>Plant Nursery</option>
+                  <option value="organic" {% if shop_type == 'organic' %}selected{% endif %}>Organic Farming Shop</option>
+                </select>
+
+                <button type="submit" class="btn btn-success mt-3">Find Shops</button>
+              </form>
+          </div>
+
+          <div class="col-xl-7" data-aos="fade-up" data-aos-delay="200">
+              <div class="row gy-4">
+
+                  <div class="col-md-6 icon-box position-relative">
+                      <i class="bi bi-shop"></i>
+                      <h4><a href="{% url 'agrishops' %}" class="stretched-link">Certified Agri Stores</a></h4>
+                      <p>Locate government-certified agricultural suppliers for quality products.</p>
+                  </div>
+
+                  <div class="col-md-6 icon-box position-relative">
+                      <i class="bi bi-tools"></i>
+                      <h4><a href="{% url 'agrishops' %}" class="stretched-link">Farm Equipment Dealers</a></h4>
+                      <p>Find suppliers providing modern farming tools and machinery.</p>
+                  </div>
+
+                  <div class="col-md-6 icon-box position-relative">
+                      <i class="bi bi-flower1"></i>
+                      <h4><a href="{% url 'agrishops' %}" class="stretched-link">Seed & Fertilizer Shops</a></h4>
+                      <p>Access high-quality seeds and fertilizers for better crop yield.</p>
+                  </div>
+
+                  <div class="col-md-6 icon-box position-relative">
+                      <i class="bi bi-map"></i>
+                      <h4><a href="{% url 'agrishops' %}" class="stretched-link">Agri Marketplaces</a></h4>
+                      <p>Explore digital agri marketplaces connecting farmers with suppliers.</p>
+                  </div>
+
+              </div>
+          </div>
+
+      </div>
+  </div>
+
+</section>
+
+<!-- Agri Shops Listings -->
+<section id="agri-shops-list" class="agri-shops-list section">
+
+  <div class="container section-title" data-aos="fade-up">
+      <h2>Available Agriculture Shops</h2>
+      <p><span>Discover</span> <span class="description-title">Trusted Agricultural Suppliers</span></p>
+  </div>
+  
+  <div class="container">
+      <div class="row gy-4 justify-content-center">
+
+        {% for shop in shop_list %}
+        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:'1' }}00">
+            <div class="shop-card">
+                <div class="shop-img">
+                  <img src="{% if shop.image_url %}{{ shop.image_url }}{% else %}{% static 'images/shops_default_img.jpg' %}{% endif %}" class="img-fluid" alt="Shop Image">
+                </div>
+                <div class="shop-info">
+                    <h4><a href="{{ shop.url }}" target="_blank">{{ shop.name }}</a></h4>
+                    <p>{{ shop.description|truncatewords:20 }}</p>
+                    <small class="text-muted">Location: {{ shop.location }}</small>
+                    <p class="shop-contact"><strong>Contact:</strong> {{ shop.contact }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">No shops found. Try a different location or shop type.</p>
+        {% endfor %}
+        
+      </div>
+  </div>
+
+</section>
+
+
+
+
+
+<!-- AgriShops FAQ Section -->
+<section id="agrishops-faq" class="faq section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Frequently Asked Questions</h2>
+    <p><span>PlantXpert</span> <span class="description-title">AgriShops</span></p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <div class="row justify-content-center">
+
+      <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="faq-container">
+
+          <div class="faq-item faq-active">
+            <h3>What is the AgriShops feature in PlantXpert?</h3>
+            <div class="faq-content">
+              <p>AgriShops helps users find nearby agricultural stores such as fertilizer shops, seed stores, nurseries, pesticide suppliers, and farm equipment dealers.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3>How does PlantXpert find nearby agricultural shops?</h3>
+            <div class="faq-content">
+              <p>We use Google Places API to fetch real-time data of agricultural stores based on your location and selected shop type.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3>What types of shops can I search for?</h3>
+            <div class="faq-content">
+              <p>You can find various agricultural shops, including fertilizer shops, seed stores, plant nurseries, pesticide suppliers, tool stores, farm equipment dealers, and organic farming shops.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3>Do I need to allow location access?</h3>
+            <div class="faq-content">
+              <p>No, you don’t need to allow location access. You can simply enter your desired location in the search bar, and we will display agricultural stores near that searched location.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+          
+
+          <div class="faq-item">
+            <h3>Can I view the shop's location on a map?</h3>
+            <div class="faq-content">
+              <p>Yes, each listed shop includes a Google Maps link, allowing you to view its exact location and get directions.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3>What if the shop details are incorrect?</h3>
+            <div class="faq-content">
+              <p>Our data is fetched from Google Places API, so any incorrect details should be reported directly to Google Maps for updates.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3>Are the shop images real?</h3>
+            <div class="faq-content">
+              <p>Shop images are retrieved from Google Places API. If an image is unavailable, a default placeholder image is shown.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3>Can I contact a shop directly from PlantXpert?</h3>
+            <div class="faq-content">
+              <p>If the shop has a registered phone number, it will be displayed, allowing you to contact them directly.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3>Is there a way to filter search results?</h3>
+            <div class="faq-content">
+              <p>Yes, you can enter a location in the search bar, and we will display agricultural shops near that place. Additionally, you can filter results by selecting a specific shop type (e.g., seeds, fertilizers, pesticides) to refine your search.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3>What should I do if no shops are found in my area?</h3>
+            <div class="faq-content">
+              <p>Try searching with a nearby town or city. Some rural areas may have fewer shop listings available.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+        </div>
+
+      </div><!-- End Faq Column-->
+
+    </div>
+
+  </div>
+
+</section><!-- /AgriShops FAQ Section -->
+
+{% endblock body %}
+  

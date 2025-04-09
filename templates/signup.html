@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static  %}
+{% block title %}
+Sign Up
+{% endblock title %}
+
+
+{% block body %}
+<body>
+  <!-- Signup Section -->
+  <section id="signup" class="signup section dark-background">
+
+    <img src="{% static 'assets/img/agri_news.jpg' %}" alt="" data-aos="fade-in">
+
+    <div class="container position-absolute top-50 start-50 translate-middle">
+      <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6 col-sm-8 col-10">
+          <h3 class="text-center mb-3 text-white">🌿 Sign Up</h3>
+
+          <!-- Alert Messages (Django Messages Framework) -->
+          {% if messages %}
+          <div class="container">
+            {% for message in messages %}
+              <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close custom-close" data-bs-dismiss="alert" aria-label="Close">
+                  &times;
+                </button>                
+              </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+          <form action="{% url 'signup' %}" method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+              <label for="email" class="form-label text-white">Email</label>
+              <input type="email" class="form-control" id="email" name="email" value="{{ request.POST.email }}" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="password1" class="form-label text-white">Password</label>
+              <input type="password" class="form-control" id="password1" name="password1" value="{{ request.POST.password1 }}" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="password2" class="form-label text-white">Confirm Password</label>
+              <input type="password" class="form-control" id="password2" name="password2" value="{{ request.POST.password2 }}" required>
+            </div>
+
+            <button type="submit" class="btn w-100">Sign Up</button>
+
+            <div class="text-center mt-3">
+              <p class="small text-white">Already have an account? 
+                <span><a href="{% url 'login' %}" class="text-light">Login</a></span>
+              </p>
+              <p class="small">
+                <a href="{% url 'forgot_password' %}" class="text-light">Forgot Password?</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </section><!-- /Signup Section -->
+</body>
+
+
+
+
+{% endblock body %} 
+
+  

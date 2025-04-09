@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Plant Disease Detection
+{% endblock title %}
+{% block header_class %}bg-dark{% endblock %}
+
+{% block body %}
+  <!-- About 3 Section -->
+  <section id="about-3" class="about-3 section">
+
+    <div class="container">
+      <div class="row gy-4 justify-content-between align-items-center" style="margin-top: 50px;">
+        <div class="col-lg-6 order-lg-2 position-relative" data-aos="zoom-out">
+          <img src="{% static '/assets/img/disease_detection2.jpg' %}" alt="Image" class="img-fluid">
+        </div>
+        <div class="col-lg-5 order-lg-1" data-aos="fade-up" data-aos-delay="100">
+          <h2 class="content-title mb-4">Plant Disease Detection 🌱🔬</h2>
+          <p class="mb-4">
+            Early detection of plant diseases is crucial for ensuring healthy crop growth and improving agricultural productivity. Our advanced AI-powered disease detection system helps farmers and agricultural experts identify plant diseases with just a single image.
+          </p>
+          <ul class="list-unstyled list-check">
+            <li>📸 Upload or capture an image of the affected plant.</li>
+            <li>🧠 Our AI model analyzes the image and detects potential diseases.</li>
+            <li>📌 Get detailed diagnosis, symptoms, and precautionary measures to prevent crop damage.</li>
+          </ul>
+          <p>
+           <a href="{% url 'plant_disease' %}" class="btn-cta">Detect Now</a>
+        </div>
+      </div>
+    </div>
+  </section><!-- /About 3 Section -->
+
+<!-- Plant Disease Classifier Section -->
+<section id="disease-classifier" class="section light-background">
+  <div class="container" data-aos="fade-up">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+
+        <div class="main-container" style="box-shadow: 0 0 20px rgba(0,0,0,0.05); border-radius: 15px; overflow: hidden;">
+          <!-- Sidebar Upload Section -->
+          <div class="sidebar">
+            <h2>🌿 Plant Disease Classifier</h2>
+            <p>Upload a leaf image to identify the disease and get expert suggestions.</p>
+            <!-- Disease Dropdown -->
+          <div class="mt-3 text-start">
+            <label for="disease-list" class="form-label fw-bold">🩺 Supported Diseases:</label>
+            <select class="form-select" id="disease-list" size="5" style="height: auto;" disabled>
+              {% for disease in disease_classes %}
+              <option>{{ disease }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+            <form method="post" enctype="multipart/form-data" id="upload-form">
+              {% csrf_token %}
+              <div class="image-upload">
+                <label for="plant_image">
+                  <img id="image-preview" src="{% static '/assets/img/about_img.jpeg' %}" alt="Upload Image">
+                  <span class="remove-image" onclick="removeImage()">×</span>
+                </label>
+                <input type="file" name="plant_image" id="plant_image" accept="image/*" onchange="previewImage(event)" required>
+              </div>
+              <button type="submit">Classify</button>
+              <div class="text-center mt-3">
+                <p>Need Help? <a href="{% url 'assistant' %}">🤖 Ask PlantXpert-Assistant</a></p>
+              </div>
+            </form>
+          </div>
+
+          <!-- Right Result Section -->
+          <div class="content result-section">
+            {% if result %}
+            <div class="result-box" id="result-box">
+              <button class="close-result" onclick="closeResult()">×</button>
+              <h4>Prediction Result 🌾</h4>
+              <img src="{{ image_url }}" alt="Uploaded Leaf" style="max-width: 300px; height: auto; display: block; margin: 0 auto 15px auto; border-radius: 10px;">
+              <p><strong>Disease:</strong> {{ result }}</p>
+              <p><strong>Confidence:</strong> {{ confidence|floatformat:2 }}%</p>
+              <hr>
+              <p><strong>Description:</strong> {{ solution.description }}</p>
+              <p><strong>Cure:</strong> {{ solution.cure }}</p>
+              <p><strong>Organic Solution:</strong> {{ solution.organic_solution }}</p>
+              <p><strong>Chemical Solution:</strong> {{ solution.chemical_solution }}</p>
+              <p><strong>Preventive Measures:</strong> {{ solution.preventive_measures }}</p>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+
+        <!-- Loader -->
+        <div id="loading-overlay" style="display: none;">
+          <div class="loader-box">
+            <div class="spinner"></div>
+            <p>🌱 PlantXpert is analyzing...</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Plant Disease Detection FAQ Section -->
+<section id="disease-faq" class="faq section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Frequently Asked Questions</h2>
+    <p><span>Plant Disease</span> <span class="description-title">Detection Support</span></p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <div class="row justify-content-center">
+
+      <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="faq-container">
+
+          <div class="faq-item faq-active">
+            <h3>What is the Plant Disease Detection System?</h3>
+            <div class="faq-content">
+              <p>It’s an AI-powered tool that analyzes images of plant leaves to identify diseases using deep learning models.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>What image should I upload?</h3>
+            <div class="faq-content">
+              <p>Upload a clear, close-up image of the affected plant leaf with good lighting for the best accuracy.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>How does the system work?</h3>
+            <div class="faq-content">
+              <p>The system uses a CNN-based deep learning model trained on thousands of plant leaf images to classify diseases.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>Do I need internet access?</h3>
+            <div class="faq-content">
+              <p>Yes, the image is processed on the server using the trained model, so a stable internet connection is needed.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>Does it cover all plant types?</h3>
+            <div class="faq-content">
+              <p>The model supports many common crops like tomato, potato, grape, corn, etc. Support for more crops is coming soon.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>Is login required?</h3>
+            <div class="faq-content">
+              <p>Yes, to use the detection system and access your history of diagnoses, you need to log in.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>Can it detect multiple diseases?</h3>
+            <div class="faq-content">
+              <p>Currently, it identifies the most probable disease in the image. Multiple disease detection is under development.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>Will I get treatment advice?</h3>
+            <div class="faq-content">
+              <p>Yes, after detection, the app provides treatment solutions including organic and chemical measures if available.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>Can I view previous results?</h3>
+            <div class="faq-content">
+              <p>Yes, you can access your previous disease diagnoses in your profile section if you're logged in.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>How can I get support?</h3>
+            <div class="faq-content">
+              <p>For any help, email us at <strong>support@plantxpert.com</strong> or use the chatbot for quick answers.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+        </div>
+
+      </div><!-- End Faq Column -->
+
+    </div>
+
+  </div>
+
+</section><!-- /Plant Disease Detection FAQ Section -->
+
+
+{% endblock body %}
+  

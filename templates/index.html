@@ -1,0 +1,494 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+ Home 
+{% endblock title %}
+
+
+{% block body %}
+<main class="main">
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero section dark-background">
+
+    <img src="{% static '/assets/img/agri_news.jpg' %}" alt="" data-aos="fade-in">
+
+    <div class="container text-center" data-aos="fade-up" data-aos-delay="100">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+        <!-- Success/Error Message (Now Below the Page Title) -->
+        {% if messages %}
+        <div class="contact-message">
+          {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %} alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="btn-close custom-close" data-bs-dismiss="alert" aria-label="Close">
+                &times;
+              </button>                
+            </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+          <h2>Welcome to PlantXpert! 🌱</h2>
+          <p>Your smart farming assistant for plant identification, disease detection, weather updates, agri shop locations, and the latest agriculture news—all in one place!</p>
+          <p>🌾 Grow smarter, farm better! 🚜</p>
+          {% if user.is_authenticated %}
+          <a href="#services" class="btn-get-started">Get Started</a>
+         {% else %}
+          <a href="{% url 'login' %}?next=/#services" class="btn-get-started">Get Started</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+  </section><!-- /Hero Section -->
+
+  <!-- About Section -->
+  <section id="about" class="about section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>About</h2>
+      <p><span>Learn More</span> <span class="description-title">About Us<br></span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+      <div class="row gy-5">
+
+        <div class="content col-xl-5 d-flex flex-column" data-aos="fade-up" data-aos-delay="100">
+          <h3>plantXpert</h3>
+          <p>
+            PlantXpert is an AI-powered agriculture platform designed to help farmers and agri-enthusiasts with plant identification, disease detection, weather updates, nearby agri shop locations, and the latest farming news.
+          </p>
+          <a href="#" class="about-btn align-self-center align-self-xl-start"><span>About us</span> <i class="bi bi-chevron-right"></i></a>
+        </div>
+
+        <div class="col-xl-7" data-aos="fade-up" data-aos-delay="200">
+          <div class="row gy-4">
+
+            <div class="col-md-6 icon-box position-relative">
+              <i class="bi bi-robot"></i>
+              <h4><a href="/" class="stretched-link">AI-Powered Precision</a></h4>
+              <p>Our advanced deep learning models provide accurate plant identification and disease detection for better crop health.</p>
+            </div><!-- Icon-Box -->
+
+            <div class="col-md-6 icon-box position-relative">
+              <i class="bi bi-cloud-sun"></i>
+              <h4><a href="/" class="stretched-link">Real-Time Insights</a></h4>
+              <p>Get instant weather updates, market trends, and expert farming tips to make informed decisions.</p>
+            </div><!-- Icon-Box -->
+
+            <div class="col-md-6 icon-box position-relative">
+              <i class="bi bi-phone"></i>
+              <h4><a href="/" class="stretched-link">User-Friendly Interface</a></h4>
+              <p>Our app is designed for ease of use, ensuring quick access to critical agricultural information.</p>
+            </div><!-- Icon-Box -->
+
+            <div class="col-md-6 icon-box position-relative">
+              <i class="bi bi-shield-check"></i>
+              <h4><a href="/" class="stretched-link">Trusted & Reliable</a></h4>
+              <p>We use verified data sources and AI-powered analysis to provide accurate and actionable insights for farmers.</p>
+            </div><!-- Icon-Box -->
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section><!-- /About Section -->
+
+
+  <!-- Services Section -->
+  <section id="services" class="services section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Services</h2>
+      <p>Check Our <span class="description-title">Services</span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+      <div class="row gy-4">
+    
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-search icon"></i></div>
+            <h4><a href="{% url 'plant_identification' %}" class="stretched-link">Plant Identification</a></h4>
+            <p>Identify plants accurately using AI-powered image recognition technology.</p>
+          </div>
+        </div><!-- End Service Item -->
+    
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-bug icon"></i></div>
+            <h4><a href="{% url 'plant_disease' %}" class="stretched-link">Disease Detection</a></h4>
+            <p>Detect plant diseases early and receive precautionary measures to protect your crops.</p>
+          </div>
+        </div><!-- End Service Item -->
+    
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-cloud-sun icon"></i></div>
+            <h4><a href="{% url 'weather' %}" class="stretched-link">Weather Updates</a></h4>
+            <p>Get real-time weather forecasts to make informed farming decisions.</p>
+          </div>
+        </div><!-- End Service Item -->
+    
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-shop icon"></i></div>
+            <h4><a href="{% url 'agrishops' %}" class="stretched-link">Nearby Agri Shops</a></h4>
+            <p>Find the nearest agricultural shops for tools, seeds, and fertilizers.</p>
+          </div>
+        </div><!-- End Service Item -->
+    
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="500">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-newspaper icon"></i></div>
+            <h4><a href="{% url 'news' %}" class="stretched-link">Agriculture News</a></h4>
+            <p>Stay updated with the latest farming trends and agricultural news.</p>
+          </div>
+        </div><!-- End Service Item -->
+    
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="600">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-robot icon"></i></div>
+            <h4><a href="{% url 'assistant' %}" class="stretched-link">Agri Assistant</a></h4>
+            <p>Get AI-powered farming advice, tips, and support tailored to your needs.</p>
+          </div>
+        </div><!-- End Service Item -->
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="700">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-flower1 icon"></i></div>
+            <h4><a href="{% url 'crop_recommendation' %}" class="stretched-link">Crop Recommendation</a></h4>
+            <p>Discover the best crops to grow based on your soil and climate conditions.</p>
+          </div>
+        </div><!-- End Service Item -->
+        
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="800">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-bar-chart-steps icon"></i></div>
+            <h4><a href="{% url 'crop_yield_prediction' %}" class="stretched-link">Yield Prediction</a></h4>
+            <p>Predict the expected crop yield with accuracy using machine learning models.</p>
+          </div>
+        </div><!-- End Service Item -->
+        
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="900">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-droplet-half icon"></i></div>
+            <h4><a href="{% url 'water_prediction' %}" class="stretched-link">Water Requirement</a></h4>
+            <p>Calculate optimal water needs for your crops and avoid over or under-watering.</p>
+          </div>
+        </div><!-- End Service Item -->
+        
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="1000">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-beaker icon"></i></div>
+            <h4><a href="{% url 'fertilizer_prediction' %}" class="stretched-link">Fertilizers Prediction</a></h4>
+            <p>Get suggestions on the right fertilizers based on soil nutrients and crop type.</p>
+          </div>
+        </div><!-- End Service Item -->
+        
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="1100">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-bug-fill icon"></i></div>
+            <h4><a href="{% url 'pest_prediction' %}" class="stretched-link">Pest Identification</a></h4>
+            <p>Identify pests from images and receive actionable prevention or treatment tips.</p>
+          </div>
+        </div><!-- End Service Item -->
+        
+    
+      </div>
+    </div>
+    
+
+  </section><!-- /Services Section -->
+
+
+  <!-- About 3 Section -->
+  <section id="about-3" class="about-3 section">
+
+    <div class="container">
+      <div class="row gy-4 justify-content-between align-items-center">
+        <div class="col-lg-6 order-lg-2 position-relative" data-aos="zoom-out">
+          <img src="{% static '/assets/img/disease_detection2.jpg' %}" alt="Image" class="img-fluid">
+        </div>
+        <div class="col-lg-5 order-lg-1" data-aos="fade-up" data-aos-delay="100">
+          <h2 class="content-title mb-4">Plant Disease Detection 🌱🔬</h2>
+          <p class="mb-4">
+            Early detection of plant diseases is crucial for ensuring healthy crop growth and improving agricultural productivity. Our advanced AI-powered disease detection system helps farmers and agricultural experts identify plant diseases with just a single image.
+          </p>
+          <ul class="list-unstyled list-check">
+            <li>📸 Upload or capture an image of the affected plant.</li>
+            <li>🧠 Our AI model analyzes the image and detects potential diseases.</li>
+            <li>📌 Get detailed diagnosis, symptoms, and precautionary measures to prevent crop damage.</li>
+          </ul>
+          <p>
+           <a href="{% url 'plant_disease' %}" class="btn-cta">Detect Now</a>
+        </div>
+      </div>
+    </div>
+  </section><!-- /About 3 Section -->
+
+  <!-- Team Section -->
+  <section id="team" class="team section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Team</h2>
+      <p><span>Our Hardworking </span> <span class="description-title">Team</span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+      <div class="row gy-4 justify-content-center"> <!-- Center content dynamically -->
+        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+          <div class="team-member">
+            <div class="member-img">
+              <img src="{% static '/assets/img/team/team-1.jpg' %}" class="img-fluid" alt="">
+              <div class="social">
+                <a href="https://www.linkedin.com/in/venumekapothula" target="_blank"><i class="bi bi-twitter-x"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100073054288005&mibextid=ZbWKwL" target="_blank"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/__venu__official1612" target="_blank"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/venumekapothula" target="_blank"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="member-info">
+              <h4>Venu Mekapothula</h4>
+              <span>Team lead | Django | Ml | AI</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+          <div class="team-member">
+            <div class="member-img">
+              <img src="{% static '/assets/img/team/team-2.jpg' %}" class="img-fluid" alt="">
+              <div class="social">
+                <a href="#"><i class="bi bi-twitter-x"></i></a>
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="member-info">
+              <h4>Nandini Sontyana</h4>
+              <span>Data collecter & AI</span>
+            </div>
+          </div>
+        </div>
+    
+        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+          <div class="team-member">
+            <div class="member-img">
+              <img src="{% static '/assets/img/team/team-4.jpg' %}" class="img-fluid" alt="">
+              <div class="social">
+                <a href="#"><i class="bi bi-twitter-x"></i></a>
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="member-info">
+              <h4>Kunduru Anusha </h4>
+              <span>ML Trainer</span>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+    </div>
+
+  </section><!-- /Team Section -->
+
+  <!-- Faq Section -->
+  <section id="faq" class="faq section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Frequently Asked Questions</h2>
+      <p><span>PlantXpert</span> <span class="description-title">Help</span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+      <div class="row justify-content-center">
+
+        <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="faq-container">
+
+            <div class="faq-item faq-active">
+              <h3>What is PlantXpert?</h3>
+              <div class="faq-content">
+                <p>PlantXpert is an AI-powered platform designed to detect plant diseases, provide weather updates, share agricultural news, and connect users with nearby agri-shops.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+
+            <div class="faq-item">
+              <h3>How does the plant disease detection feature work?</h3>
+              <div class="faq-content">
+                <p>Users can upload an image of a plant, and our AI model analyzes it to detect possible diseases and suggest precautionary measures.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+
+            <div class="faq-item">
+              <h3>Is PlantXpert free to use?</h3>
+              <div class="faq-content">
+                <p>Yes, the basic features such as plant disease detection, weather updates, chatbot support, and agri-news are free for all users.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+
+            <div class="faq-item">
+              <h3>How accurate is the AI in detecting plant diseases?</h3>
+              <div class="faq-content">
+                <p>Our AI model is trained on a vast dataset and provides high accuracy, but we recommend consulting an agricultural expert for confirmation.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+
+            <div class="faq-item">
+              <h3>How can I find nearby agricultural shops?</h3>
+              <div class="faq-content">
+                <p>Navigate to the "Agri Shops" section to view nearby stores, along with their locations on Google Maps.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+
+            <div class="faq-item">
+              <h3>Does PlantXpert provide weather updates?</h3>
+              <div class="faq-content">
+                <p>Yes, we fetch real-time weather data from the OpenWeather API to help farmers make better agricultural decisions.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+
+            <div class="faq-item">
+              <h3>How do I reset my password if I forget it?</h3>
+              <div class="faq-content">
+                <p>Click on "Forgot Password" on the login page, enter your email, and follow the instructions sent to your inbox to reset your password.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+
+            <div class="faq-item">
+              <h3>Can I get recommendations for plant care and disease prevention?</h3>
+              <div class="faq-content">
+                <p>Yes, based on disease detection, PlantXpert provides precautionary measures and best practices for plant care.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+
+            <div class="faq-item">
+              <h3>How can I stay updated with the latest agricultural news?</h3>
+              <div class="faq-content">
+                <p>Our news section fetches real-time agricultural updates from trusted sources via NewsAPI.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+
+            <div class="faq-item">
+              <h3>How do I contact support if I have an issue?</h3>
+              <div class="faq-content">
+                <p>You can reach out to us via our chatbot or email <strong>support@plantxpert.com</strong> for assistance.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+
+          </div>
+
+        </div><!-- End Faq Column-->
+
+      </div>
+
+    </div>
+
+  </section><!-- /Faq Section -->
+
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Contact</h2>
+      <p><span>Need Help?</span> <span class="description-title">Contact us<br></span></p>
+    </div><!-- End Section Title -->
+  
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+  
+      <div class="mb-4" data-aos="fade-up" data-aos-delay="200">
+        <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d95486.9834557809!2d77.52722714594704!3d14.655447171009854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb14ac2e6404f37%3A0xb810d064e2ce70e8!2sAnantapur%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1742995073032!5m2!1sen!2sin" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div><!-- End Google Maps -->
+  
+      <div class="row gy-4">
+        
+        <!-- Contact Info (Left) -->
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="info-item d-flex">
+            <i class="bi bi-geo-alt flex-shrink-0"></i>
+            <div>
+              <h3>Address</h3>
+              <p>123 AgriTech Street</p>
+              <p>Anantapur, Andhra Pradesh 515001</p>
+            </div>
+          </div>
+          <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+            <i class="bi bi-telephone flex-shrink-0"></i>
+            <div>
+              <h3>Call Us</h3>
+              <p>+91 98765 43210</p>
+            </div>
+          </div>
+          <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
+            <i class="bi bi-envelope flex-shrink-0"></i>
+            <div>
+              <h3>Email Us</h3>
+              <p>support@plantxpert.com</p>
+            </div>
+          </div>
+        </div><!-- End Contact Info -->
+  
+        <!-- Contact Form (Right) -->
+        <div class="col-lg-8">
+          <form action="{% url 'index' %}" method="post" class="contact-email-form" data-aos="fade-up" data-aos-delay="200">
+            {% csrf_token %}
+            <div class="row gy-4">
+              <div class="col-md-6">
+                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+              </div>
+              <div class="col-md-6">
+                <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+              </div>
+              <div class="col-md-12">
+                <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+              </div>
+              <div class="col-md-12">
+                <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+              </div>
+              <div class="col-md-12 text-center">
+                {% if request.user.is_authenticated %}
+                <button type="submit">Send Message</button>
+               {% else %}
+                <a href="{% url 'login' %}" class="btn btn-warning">Login to Send Message</a>
+               {% endif %}
+              </div>
+            </div>
+          </form>
+        </div><!-- End Contact Form -->
+  
+      </div><!-- End Row -->
+  
+    </div><!-- End Container -->
+  
+  </section><!-- /Contact Section -->
+  
+</main>
+{% endblock body %}
+  
+  

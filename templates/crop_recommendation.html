@@ -1,0 +1,240 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Crop Recommendation
+{% endblock title %}
+{% block header_class %}bg-dark{% endblock %}
+
+
+{% block body %}
+
+<!-- About Crop Recommendation Section -->
+<section id="crop-recommendation" class="about section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up" style='margin-top:60px'>
+      <h2>Crop Recommendation</h2>
+      <p><span>Learn More</span> <span class="description-title">About Crop Suggestion<br></span></p>
+    </div><!-- End Section Title -->
+  
+    <div class="container">
+  
+      <div class="row gy-5">
+  
+        <div class="content col-xl-5 d-flex flex-column" data-aos="fade-up" data-aos-delay="100">
+          <h3>Smart Crop Advisor</h3>
+          <p>
+            Our AI-driven Crop Recommendation System helps farmers choose the most suitable crop based on soil nutrients, temperature, humidity, and rainfall. Maximize yield and profitability with data-backed suggestions.
+          </p>
+          <a href="#" class="about-btn align-self-center align-self-xl-start"><span>Know More</span> <i class="bi bi-chevron-right"></i></a>
+        </div>
+  
+        <div class="col-xl-7" data-aos="fade-up" data-aos-delay="200">
+          <div class="row gy-4">
+  
+            <div class="col-md-6 icon-box position-relative">
+              <i class="bi bi-bar-chart-line"></i>
+              <h4><a href="{% url 'crop_recommendation' %}" class="stretched-link">Data-Driven Choices</a></h4>
+              <p>Our system analyzes key environmental factors and soil composition to recommend ideal crops for each season.</p>
+            </div><!-- Icon-Box -->
+  
+            <div class="col-md-6 icon-box position-relative">
+              <i class="bi bi-tree"></i>
+              <h4><a href="{% url 'crop_recommendation' %}" class="stretched-link">Sustainable Farming</a></h4>
+              <p>Grow crops that suit your land and climate, reducing resource waste and improving soil health.</p>
+            </div><!-- Icon-Box -->
+  
+            <div class="col-md-6 icon-box position-relative">
+              <i class="bi bi-graph-up"></i>
+              <h4><a href="{% url 'crop_recommendation' %}" class="stretched-link">Increased Profitability</a></h4>
+              <p>Boost your harvest and income with optimized crop planning powered by machine learning.</p>
+            </div><!-- Icon-Box -->
+  
+            <div class="col-md-6 icon-box position-relative">
+              <i class="bi bi-lightbulb"></i>
+              <h4><a href="{% url 'crop_recommendation' %}" class="stretched-link">Smart Suggestions</a></h4>
+              <p>Leverage real-time analytics and historical data for intelligent crop decisions every season.</p>
+            </div><!-- Icon-Box -->
+  
+          </div>
+        </div>
+  
+      </div>
+  
+    </div>
+  
+</section><!-- /About Crop Recommendation Section -->
+
+
+<!-- Section -->
+<section id="crop-recommendation" class="crop-recommendation py-5">
+    <div class="container text-center" data-aos="fade-up">
+      <h2>🌿 Crop Recommendation</h2>
+      <p>Provide your soil and climate details to get the best crop suggestion. 🌾</p>
+  
+      {% if prediction %}
+      <div class="result-card mt-4 p-4">
+        <h4>Recommended Crop: <strong>{{ prediction }}</strong></h4>
+        <div class="emoji display-4">{{ emoji }}</div>
+      </div>
+      {% endif %}
+  
+      {% if error %}
+      <div class="alert alert-danger mt-3">{{ error }}</div>
+      {% endif %}
+  
+      <form method="POST" action="" class="mt-4" data-aos="fade-up" data-aos-delay="100">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="nitrogen">Nitrogen (N)</label>
+            <input type="number" name="nitrogen" class="form-control" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="phosphorus">Phosphorus (P)</label>
+            <input type="number" name="phosphorus" class="form-control" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="potassium">Potassium (K)</label>
+            <input type="number" name="potassium" class="form-control" required>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="temperature">Temperature (°C)</label>
+            <input type="number" name="temperature" class="form-control" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="humidity">Humidity (%)</label>
+            <input type="number" name="humidity" class="form-control" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="ph_level">pH Level</label>
+            <input type="number" name="ph_level" class="form-control" required>
+          </div>
+        </div>
+  
+        <div class="mb-3">
+          <label for="rainfall">Rainfall (mm)</label>
+          <input type="number" name="rainfall" class="form-control" required>
+        </div>
+  
+        <button type="submit" class="btn btn-success px-4">🌱 Recommend Crop</button>
+        <div class="text-center mt-3">
+         <p>Any doubt? <a href="{% url 'assistant' %}">🤖 Ask PlantXpert-Assistant</a></p>
+        </div>
+      </form>
+    </div>
+</section>
+  
+
+<section id="crop-faq" class="faq section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Frequently Asked Questions</h2>
+      <p><span>Crop Recommendation</span> <span class="description-title">System Help</span></p>
+    </div><!-- End Section Title -->
+  
+    <div class="container">
+  
+      <div class="row justify-content-center">
+  
+        <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+  
+          <div class="faq-container">
+  
+            <div class="faq-item faq-active">
+              <h3>What is the Crop Recommendation System?</h3>
+              <div class="faq-content">
+                <p>It’s an AI-based tool that suggests the most suitable crop to grow based on your soil nutrients and environmental conditions.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>What details do I need to provide?</h3>
+              <div class="faq-content">
+                <p>You need to enter Nitrogen, Phosphorus, Potassium levels, Temperature, Humidity, pH value, and Rainfall to get accurate crop suggestions.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>How is the recommended crop selected?</h3>
+              <div class="faq-content">
+                <p>The system uses a trained machine learning model that analyzes your inputs and matches them with optimal growing conditions for various crops.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>Do I need an internet connection?</h3>
+              <div class="faq-content">
+                <p>Yes, the system processes your data online using cloud-based models to generate recommendations in real-time.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>Is it suitable for all regions?</h3>
+              <div class="faq-content">
+                <p>Yes, but the accuracy improves if you provide region-specific and up-to-date environmental data for your farmland.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>Can I use it without logging in?</h3>
+              <div class="faq-content">
+                <p>Currently, login is required to access the crop recommendation system, so we can save your data and suggestions for future reference.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>How accurate are the recommendations?</h3>
+              <div class="faq-content">
+                <p>The model has been trained on extensive agricultural data and provides high-accuracy suggestions, but field testing is recommended for best results.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>Can it suggest multiple crops?</h3>
+              <div class="faq-content">
+                <p>Currently, it suggests the single best crop. In future versions, we plan to offer a list of suitable crops based on your conditions.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>Can I see the recommendation history?</h3>
+              <div class="faq-content">
+                <p>Yes, after login, your previous crop suggestions will be saved to your profile for future viewing.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+            <div class="faq-item">
+              <h3>Who can I contact for technical support?</h3>
+              <div class="faq-content">
+                <p>For any issues, email us at <strong>support@plantxpert.com</strong> or use the chatbot assistant for quick help.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+  
+          </div>
+  
+        </div><!-- End Faq Column -->
+  
+      </div>
+  
+    </div>
+  
+</section><!-- /Crop Recommendation FAQ Section -->
+  
+  
+
+{% endblock body %}

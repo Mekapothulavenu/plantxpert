@@ -1,0 +1,219 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Pest Detection
+{% endblock title %}
+{% block header_class %}bg-dark{% endblock %}
+
+
+{% block body %}
+
+<!-- About Pest Detection Section -->
+<section id="about-pest" class="about-3 section">
+
+  <div class="container">
+    <div class="row gy-4 justify-content-between align-items-center" style="margin-top: 50px;">
+      <div class="col-lg-6 order-lg-2 position-relative" data-aos="zoom-out">
+        <img src="{% static '/assets/img/disease_detection2.jpg' %}" alt="Pest Detection Image" class="img-fluid">
+      </div>
+      <div class="col-lg-5 order-lg-1" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="content-title mb-4">Pest Detection 🐛🕵️‍♂️</h2>
+        <p class="mb-4">
+          Protect your crops by identifying harmful pests at an early stage. Our intelligent pest detection tool uses image recognition to spot pests quickly and accurately, helping farmers minimize damage and plan the right treatment.
+        </p>
+        <ul class="list-unstyled list-check">
+          <li>📸 Upload or capture an image of the pest-affected plant or leaf.</li>
+          <li>🧠 AI analyzes the image and identifies the pest species.</li>
+          <li>📌 Receive detailed information and recommended control measures.</li>
+        </ul>
+        <p>
+          <a href="{% url 'pest_prediction' %}" class="btn-cta">Detect Pests</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section><!-- /About Pest Detection Section -->
+
+
+
+<!-- Pest Classifier Section -->
+<section id="pest-classifier" class="section light-background">
+  <div class="container" data-aos="fade-up">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+
+        <div class="main-container" style="box-shadow: 0 0 20px rgba(0,0,0,0.05); border-radius: 15px; overflow: hidden;">
+          <!-- Sidebar Upload Section -->
+          <div class="sidebar">
+            <h2>🐛 Pest Classifier</h2>
+            <p>Upload an image of the pest or affected plant area to identify the pest and get control measures.</p>
+            <div class="mt-3 text-start">
+              <label for="pest-list" class="form-label fw-bold">🪲 Supported Pests:</label>
+              <select class="form-select" id="pest-list" size="6" style="height: auto;" disabled>
+                {% for pest in pest_classes %}
+                  <option>{{ pest }}</option>
+                {% endfor %}
+              </select>
+            </div>            
+            <form method="post" enctype="multipart/form-data" id="upload-form">
+              {% csrf_token %}
+              <div class="image-upload">
+                <label for="pest_image">
+                  <img id="image-preview" src="{% static '/assets/img/about_img.jpeg' %}" alt="Upload Image">
+                  <span class="remove-image" onclick="removeImage()">×</span>
+                </label>
+                <input type="file" name="pest_image" id="pest_image" accept="image/*" onchange="previewImage(event)" required>
+              </div>
+              <button type="submit">Classify</button>
+              <div class="text-center mt-3">
+                <p>Need Help? <a href="{% url 'assistant' %}">🤖 Ask PlantXpert-Assistant</a></p>
+              </div>
+            </form>
+          </div>
+
+          <!-- Right Result Section -->
+          <div class="content result-section">
+            {% if result %}
+            <div class="result-box" id="result-box">
+              <button class="close-result" onclick="closeResult()">×</button>
+              <h4>Prediction Result 🕷️</h4>
+              <img src="{{ image_url }}" alt="Uploaded Pest Image" style="max-width: 300px; height: auto; display: block; margin: 0 auto 15px auto; border-radius: 10px;">
+              <p><strong>Pest Identified:</strong> {{ result }}</p>
+              <p><strong>Confidence:</strong> {{ confidence|floatformat:2 }}%</p>
+              <hr>
+              <p><strong>Description:</strong> {{ solution.description }}</p>
+              <p><strong>Cure:</strong> {{ solution.cure }}</p>
+              <p><strong>Organic Treatment:</strong> {{ solution.organic_solution }}</p>
+              <p><strong>Chemical Treatment:</strong> {{ solution.chemical_solution }}</p>
+              <p><strong>Preventive Measures:</strong> {{ solution.preventive_measures }}</p>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+
+        <!-- Loader -->
+        <div id="loading-overlay" style="display: none;">
+          <div class="loader-box">
+            <div class="spinner"></div>
+            <p>🧠 Identifying the pest...</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+
+<!-- Pest Detection FAQ Section -->
+<section id="pest-faq" class="faq section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Frequently Asked Questions</h2>
+    <p><span>Pest Detection</span> <span class="description-title">System Help</span></p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <div class="row justify-content-center">
+
+      <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="faq-container">
+
+          <div class="faq-item faq-active">
+            <h3>What is the Pest Detection System?</h3>
+            <div class="faq-content">
+              <p>It’s an AI-based tool that identifies pests in crops by analyzing uploaded plant images using deep learning models.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>What input is required?</h3>
+            <div class="faq-content">
+              <p>You need to upload a clear image of your crop or leaf affected by pests for accurate detection.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>How does the system detect pests?</h3>
+            <div class="faq-content">
+              <p>The system uses a trained convolutional neural network (CNN) model to classify and identify pests from the uploaded image.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>Do I need internet access?</h3>
+            <div class="faq-content">
+              <p>Yes, the image is processed online using cloud-based AI models for real-time detection.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>Is it effective for all crops?</h3>
+            <div class="faq-content">
+              <p>The system is trained on various common crops and pests. Accuracy may vary for lesser-known pest types or rare conditions.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>Do I need to log in?</h3>
+            <div class="faq-content">
+              <p>Yes, login is required to access pest detection and to keep track of your diagnosis history.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>Can I detect multiple pests?</h3>
+            <div class="faq-content">
+              <p>Currently, the system detects the most dominant pest in the image. Multiple pest identification is in development.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>Is there a history of detections?</h3>
+            <div class="faq-content">
+              <p>Yes, after logging in, you can view previously uploaded images and pest identification results in your profile.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>Can I get treatment suggestions too?</h3>
+            <div class="faq-content">
+              <p>Yes, after detection, the system shows precautionary or treatment measures for the identified pest.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>Who can I contact for help?</h3>
+            <div class="faq-content">
+              <p>For any queries, email us at <strong>support@plantxpert.com</strong> or ask our chatbot assistant for quick help.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+        </div>
+
+      </div><!-- End Faq Column -->
+
+    </div>
+
+  </div>
+
+</section><!-- /Pest Detection FAQ Section -->
+
+  
+  
+
+{% endblock body %}

@@ -1,0 +1,156 @@
+{
+  "Adulsa": {
+    "description": "A medicinal plant commonly used for treating coughs and respiratory issues.",
+    "uses": "Used in herbal syrups and Ayurvedic medicine.",
+    "organic_benefits": "Helps clear respiratory tract and supports lung health.",
+    "chemical_content": "Contains vasicine, a bronchodilator.",
+    "precautions": "Avoid overdose; not recommended during pregnancy."
+  },
+  "Alovera": {
+    "description": "A succulent plant known for its soothing gel used in skincare and healing.",
+    "uses": "Used for burns, skin care, and digestion.",
+    "organic_benefits": "Soothes inflammation and hydrates skin naturally.",
+    "chemical_content": "Contains aloin, vitamins A, C, E, and enzymes.",
+    "precautions": "External use is safe; internal use should be limited."
+  },
+  "Amla": {
+    "description": "Indian gooseberry rich in Vitamin C and antioxidants.",
+    "uses": "Used in hair oils, juices, and immunity boosters.",
+    "organic_benefits": "Boosts immunity and supports hair and skin health.",
+    "chemical_content": "High in Vitamin C and tannins.",
+    "precautions": "Generally safe; excess can cause acidity in some."
+  },
+  "Banana": {
+    "description": "A tropical fruit plant known for its sweet fruit and rich nutrient content.",
+    "uses": "Consumed fresh or in desserts; leaves used for food wrapping.",
+    "organic_benefits": "High in potassium, supports digestion.",
+    "chemical_content": "Rich in natural sugars and potassium.",
+    "precautions": "Overripe bananas may spike blood sugar."
+  },
+  "BeetalLeaf(Pan)": {
+    "description": "A heart-shaped leaf used culturally and medicinally in Asia.",
+    "uses": "Used for chewing with areca nut, aids digestion.",
+    "organic_benefits": "Anti-bacterial, freshens breath.",
+    "chemical_content": "Contains chavicol and eugenol.",
+    "precautions": "Avoid use with tobacco; may irritate stomach lining."
+  },
+  "Bramhi": {
+    "description": "A brain-boosting herb used in Ayurvedic memory tonics.",
+    "uses": "Enhances memory and reduces stress.",
+    "organic_benefits": "Supports cognitive function naturally.",
+    "chemical_content": "Contains bacosides that improve brain function.",
+    "precautions": "High doses may cause nausea."
+  },
+  "CurryLeaves": {
+    "description": "Aromatic leaves used in Indian cooking and medicine.",
+    "uses": "Used in cooking and hair care.",
+    "organic_benefits": "Improves digestion and promotes hair growth.",
+    "chemical_content": "Rich in iron and antioxidants.",
+    "precautions": "Safe in culinary amounts; medicinal use should be moderate."
+  },
+  "Drumstick": {
+    "description": "Also known as Moringa, it's a highly nutritious plant.",
+    "uses": "Used in cooking, leaf powder for supplements.",
+    "organic_benefits": "Rich in vitamins, anti-inflammatory.",
+    "chemical_content": "Contains quercetin and vitamin A, C, E.",
+    "precautions": "Excessive consumption may lower blood pressure too much."
+  },
+  "Eranda": {
+    "description": "Commonly known as castor plant; used for oil extraction.",
+    "uses": "Castor oil used as laxative and hair tonic.",
+    "organic_benefits": "Relieves constipation and promotes hair health.",
+    "chemical_content": "Contains ricin (toxic if raw), and ricinoleic acid.",
+    "precautions": "Seeds are poisonous if chewed raw."
+  },
+  "Gokarna": {
+    "description": "A flowering plant known for its blue-violet flowers and medicinal use.",
+    "uses": "Used in Ayurvedic medicine for anxiety and pain relief.",
+    "organic_benefits": "Acts as a natural calming agent.",
+    "chemical_content": "Contains flavonoids and alkaloids.",
+    "precautions": "Use under guidance; some parts may have sedative effect."
+  },
+  "Hibiscus": {
+    "description": "A bright flower plant known for its hair and skin benefits.",
+    "uses": "Used in hair oils, teas, and beauty care.",
+    "organic_benefits": "Promotes hair growth and lowers blood pressure.",
+    "chemical_content": "Contains anthocyanins and antioxidants.",
+    "precautions": "Avoid overuse; may affect estrogen levels."
+  },
+  "Jamun(IndianBlackberry)": {
+    "description": "A fruit tree bearing purple-black berries with medicinal properties.",
+    "uses": "Used for diabetes management and digestion.",
+    "organic_benefits": "Controls blood sugar and improves oral health.",
+    "chemical_content": "Rich in jamboline and ellagic acid.",
+    "precautions": "May cause throat dryness in excess."
+  },
+  "Mango": {
+    "description": "A tropical fruit tree known for sweet fruits and culinary use.",
+    "uses": "Fruits, pickles, juices; leaves used in rituals.",
+    "organic_benefits": "Boosts immunity and supports eye health.",
+    "chemical_content": "Contains beta-carotene, vitamin C, and antioxidants.",
+    "precautions": "Unripe mango in excess may cause acidity."
+  },
+  "Neem": {
+    "description": "A highly medicinal tree used for skin, hair, and dental care.",
+    "uses": "Used in toothpaste, skin creams, and pest control.",
+    "organic_benefits": "Antibacterial and antifungal.",
+    "chemical_content": "Contains azadirachtin, nimbin, and nimbidin.",
+    "precautions": "Strong; use in moderation, avoid during pregnancy."
+  },
+  "Onion": {
+    "description": "Common vegetable with medicinal and culinary value.",
+    "uses": "Used in cooking and traditional remedies for cold.",
+    "organic_benefits": "Improves heart health and immunity.",
+    "chemical_content": "Contains quercetin and sulfur compounds.",
+    "precautions": "Can cause gastric discomfort in some people."
+  },
+  "Panfuti": {
+    "description": "Succulent plant used in traditional medicine for wounds and cough.",
+    "uses": "Used in poultices and herbal syrups.",
+    "organic_benefits": "Anti-inflammatory and healing properties.",
+    "chemical_content": "Contains flavonoids and glycosides.",
+    "precautions": "Use fresh leaves; avoid internal use in excess."
+  },
+  "Papaya": {
+    "description": "Tropical fruit tree with digestive enzymes in leaves and fruit.",
+    "uses": "Fruits eaten ripe or raw; leaves used for dengue treatment.",
+    "organic_benefits": "Improves digestion and platelet count.",
+    "chemical_content": "Contains papain and vitamin A, C.",
+    "precautions": "Unripe fruit should be avoided in pregnancy."
+  },
+  "Satynashi": {
+    "description": "Spiny plant known for its potential medicinal use in Ayurveda.",
+    "uses": "Used in liver-related treatments.",
+    "organic_benefits": "Supports liver health.",
+    "chemical_content": "Contains alkaloids and flavonoids.",
+    "precautions": "Toxic if misused; use under expert advice."
+  },
+  "Shatavari": {
+    "description": "A climbing plant used to boost female reproductive health.",
+    "uses": "Used in hormonal balancing and lactation.",
+    "organic_benefits": "Supports fertility and hormonal balance.",
+    "chemical_content": "Contains steroidal saponins.",
+    "precautions": "Consult physician before long-term use."
+  },
+  "Sugarcane": {
+    "description": "Tall grass cultivated for its sweet juice.",
+    "uses": "Used in juice, jaggery production.",
+    "organic_benefits": "Instant energy and hydration.",
+    "chemical_content": "Rich in natural sugars and polyphenols.",
+    "precautions": "Diabetics should avoid excess intake."
+  },
+  "Tandulja": {
+    "description": "Leafy plant used in traditional food and medicine.",
+    "uses": "Consumed as leafy green, used in wound healing.",
+    "organic_benefits": "Rich in iron and aids healing.",
+    "chemical_content": "Contains antioxidants and vitamins.",
+    "precautions": "Ensure it is free from pesticides before use."
+  },
+  "TouchMeNot": {
+    "description": "A sensitive plant that closes its leaves when touched.",
+    "uses": "Used in traditional medicine for piles and skin issues.",
+    "organic_benefits": "Anti-inflammatory and antibacterial.",
+    "chemical_content": "Contains mimosine and alkaloids.",
+    "precautions": "Use with care; can be mildly toxic in excess."
+  }
+}

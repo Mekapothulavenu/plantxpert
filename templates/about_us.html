@@ -1,0 +1,321 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+ About us
+{% endblock title %}
+
+{% block body %}
+<body>
+    <!-- Page Title -->
+    <div class="page-title dark-background" data-aos="fade" style="background-image: url({% static '/assets/img/about_img.jpeg' %});">
+      <div class="container position-relative">
+        <h2>About Us</h2>
+        <p>PlantXpert is an AI-powered platform for smarter, easier farming.</p>
+      </div>
+    </div><!-- End Page Title -->
+
+  <!-- About Section -->
+  <section id="about" class="about section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>About PlantXpert</h2>
+      <p>Your Smart Agricultural Assistant</p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+      <div class="row gy-5 align-items-center">
+
+        <div class="content col-xl-5 d-flex flex-column" data-aos="fade-up" data-aos-delay="100">
+          <h3>Empowering Farmers with Technology</h3>
+          <p>
+            PlantXpert is an innovative AI-powered agriculture platform designed to assist farmers, agribusiness owners, and gardening enthusiasts. We provide cutting-edge tools for plant identification, disease detection, weather updates, and access to nearby agricultural shops.
+          </p>
+          <ul>
+            <li><i class="bi bi-check-circle"></i> <strong>AI-Powered Plant & Disease Detection</strong></li>
+            <li><i class="bi bi-check-circle"></i> <strong>Real-Time Weather Updates & Forecasting</strong></li>
+            <li><i class="bi bi-check-circle"></i> <strong>AgriShops - Find Nearby Agricultural Stores</strong></li>
+            <li><i class="bi bi-check-circle"></i> <strong>Smart Chatbot for Agriculture Queries</strong></li>
+            <li><i class="bi bi-check-circle"></i> <strong>Latest Agricultural News & Updates</strong></li>
+          </ul>
+          <a href="{% url 'about_us' %}#services" class="about-btn align-self-center align-self-xl-start"><span>Learn More</span> <i class="bi bi-chevron-right"></i></a>
+        </div>
+
+        <div class="col-xl-7" data-aos="fade-up" data-aos-delay="200">
+          <div class="row gy-4">
+
+            <div class="col-md-6 icon-box position-relative">
+              <i class="bi bi-robot"></i>
+              <h4><a href="{% url 'plant_identification' %}" class="stretched-link">AI-Powered Precision</a></h4>
+              <p>Our deep learning models provide accurate plant identification and disease detection for improved crop health.</p>
+            </div><!-- Icon-Box -->
+
+            <div class="col-md-6 icon-box position-relative">
+              <i class="bi bi-cloud-sun"></i>
+              <h4><a href="{% url 'weather' %}" class="stretched-link">Real-Time Insights</a></h4>
+              <p>Instant weather updates, market trends, and expert farming tips to help make informed decisions.</p>
+            </div><!-- Icon-Box -->
+
+            <div class="col-md-6 icon-box position-relative">
+              <i class="bi bi-shop"></i>
+              <h4><a href="{% url 'agrishops' %}" class="stretched-link">AgriShops Directory</a></h4>
+              <p>Find nearby agricultural shops, including seed stores, nurseries, and farm equipment dealers.</p>
+            </div><!-- Icon-Box -->
+
+            <div class="col-md-6 icon-box position-relative">
+              <i class="bi bi-chat-dots"></i>
+              <h4><a href="{% url 'assistant' %}" class="stretched-link">Smart Agricultural Chatbot</a></h4>
+              <p>Get quick and accurate answers to farming-related questions from our AI-powered chatbot.</p>
+            </div><!-- Icon-Box -->
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section><!-- /About Section -->  
+
+  <!-- Services Section -->
+  <section id="services" class="services section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Services</h2>
+      <p>Check Our <span class="description-title">Services</span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+      <div class="row gy-4">
+    
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-search icon"></i></div>
+            <h4><a href="{% url 'plant_identification' %}" class="stretched-link">Plant Identification</a></h4>
+            <p>Identify plants accurately using AI-powered image recognition technology.</p>
+          </div>
+        </div><!-- End Service Item -->
+    
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-bug icon"></i></div>
+            <h4><a href="{% url 'plant_disease' %}" class="stretched-link">Disease Detection</a></h4>
+            <p>Detect plant diseases early and receive precautionary measures to protect your crops.</p>
+          </div>
+        </div><!-- End Service Item -->
+    
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-cloud-sun icon"></i></div>
+            <h4><a href="{% url 'weather' %}" class="stretched-link">Weather Updates</a></h4>
+            <p>Get real-time weather forecasts to make informed farming decisions.</p>
+          </div>
+        </div><!-- End Service Item -->
+    
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-shop icon"></i></div>
+            <h4><a href="{% url 'agrishops' %}" class="stretched-link">Nearby Agri Shops</a></h4>
+            <p>Find the nearest agricultural shops for tools, seeds, and fertilizers.</p>
+          </div>
+        </div><!-- End Service Item -->
+    
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="500">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-newspaper icon"></i></div>
+            <h4><a href="{% url 'news' %}" class="stretched-link">Agriculture News</a></h4>
+            <p>Stay updated with the latest farming trends and agricultural news.</p>
+          </div>
+        </div><!-- End Service Item -->
+    
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="600">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-robot icon"></i></div>
+            <h4><a href="{% url 'assistant' %}" class="stretched-link">Agri Assistant</a></h4>
+            <p>Get AI-powered farming advice, tips, and support tailored to your needs.</p>
+          </div>
+        </div><!-- End Service Item -->
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="700">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-flower1 icon"></i></div>
+            <h4><a href="{% url 'crop_recommendation' %}" class="stretched-link">Crop Recommendation</a></h4>
+            <p>Discover the best crops to grow based on your soil and climate conditions.</p>
+          </div>
+        </div><!-- End Service Item -->
+        
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="800">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-bar-chart-steps icon"></i></div>
+            <h4><a href="{% url 'crop_yield_prediction' %}" class="stretched-link">Yield Prediction</a></h4>
+            <p>Predict the expected crop yield with accuracy using machine learning models.</p>
+          </div>
+        </div><!-- End Service Item -->
+        
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="900">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-droplet-half icon"></i></div>
+            <h4><a href="{% url 'water_prediction' %}" class="stretched-link">Water Requirement</a></h4>
+            <p>Calculate optimal water needs for your crops and avoid over or under-watering.</p>
+          </div>
+        </div><!-- End Service Item -->
+        
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="1000">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-beaker icon"></i></div>
+            <h4><a href="{% url 'fertilizer_prediction' %}" class="stretched-link">Fertilizers Prediction</a></h4>
+            <p>Get suggestions on the right fertilizers based on soil nutrients and crop type.</p>
+          </div>
+        </div><!-- End Service Item -->
+        
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="1100">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-bug-fill icon"></i></div>
+            <h4><a href="{% url 'pest_prediction' %}" class="stretched-link">Pest Identification</a></h4>
+            <p>Identify pests from images and receive actionable prevention or treatment tips.</p>
+          </div>
+        </div><!-- End Service Item -->
+        
+    
+      </div>
+    </div>
+    
+
+  </section><!-- /Services Section -->
+
+
+  <!-- About 3 Section -->
+  <section id="about-3" class="about-3 section">
+
+    <div class="container">
+      <div class="row gy-4 justify-content-between align-items-center">
+        <div class="col-lg-6 order-lg-2 position-relative" data-aos="zoom-out">
+          <img src="{% static '/assets/img/disease_detection2.jpg' %}" alt="Image" class="img-fluid">
+        </div>
+        <div class="col-lg-5 order-lg-1" data-aos="fade-up" data-aos-delay="100">
+          <h2 class="content-title mb-4">Plant Disease Detection 🌱🔬</h2>
+          <p class="mb-4">
+            Early detection of plant diseases is crucial for ensuring healthy crop growth and improving agricultural productivity. Our advanced AI-powered disease detection system helps farmers and agricultural experts identify plant diseases with just a single image.
+          </p>
+          <ul class="list-unstyled list-check">
+            <li>📸 Upload or capture an image of the affected plant.</li>
+            <li>🧠 Our AI model analyzes the image and detects potential diseases.</li>
+            <li>📌 Get detailed diagnosis, symptoms, and precautionary measures to prevent crop damage.</li>
+          </ul>
+          <p>
+          <a href="{% url 'plant_disease' %}" class="btn-cta">Detect Now</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section><!-- /About 3 Section -->
+  
+  <!-- Faq Section -->
+  <section id="faq" class="faq section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Frequently Asked Questions</h2>
+      <p><span>PlantXpert</span> <span class="description-title">Help</span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+      <div class="row justify-content-center">
+
+        <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="faq-container">
+
+            <div class="faq-item faq-active">
+              <h3>What is PlantXpert?</h3>
+              <div class="faq-content">
+                <p>PlantXpert is an AI-powered platform designed to detect plant diseases, provide weather updates, share agricultural news, and connect users with nearby agri-shops.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+
+            <div class="faq-item">
+              <h3>How does the plant disease detection feature work?</h3>
+              <div class="faq-content">
+                <p>Users can upload an image of a plant, and our AI model analyzes it to detect possible diseases and suggest precautionary measures.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+
+            <div class="faq-item">
+              <h3>Is PlantXpert free to use?</h3>
+              <div class="faq-content">
+                <p>Yes, the basic features such as plant disease detection, weather updates, chatbot support, and agri-news are free for all users.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+
+            <div class="faq-item">
+              <h3>How accurate is the AI in detecting plant diseases?</h3>
+              <div class="faq-content">
+                <p>Our AI model is trained on a vast dataset and provides high accuracy, but we recommend consulting an agricultural expert for confirmation.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+
+            <div class="faq-item">
+              <h3>How can I find nearby agricultural shops?</h3>
+              <div class="faq-content">
+                <p>Navigate to the "Agri Shops" section to view nearby stores, along with their locations on Google Maps.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+
+            <div class="faq-item">
+              <h3>Does PlantXpert provide weather updates?</h3>
+              <div class="faq-content">
+                <p>Yes, we fetch real-time weather data from the OpenWeather API to help farmers make better agricultural decisions.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+
+            <div class="faq-item">
+              <h3>How do I reset my password if I forget it?</h3>
+              <div class="faq-content">
+                <p>Click on "Forgot Password" on the login page, enter your email, and follow the instructions sent to your inbox to reset your password.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+
+            <div class="faq-item">
+              <h3>Can I get recommendations for plant care and disease prevention?</h3>
+              <div class="faq-content">
+                <p>Yes, based on disease detection, PlantXpert provides precautionary measures and best practices for plant care.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+
+            <div class="faq-item">
+              <h3>How can I stay updated with the latest agricultural news?</h3>
+              <div class="faq-content">
+                <p>Our news section fetches real-time agricultural updates from trusted sources via NewsAPI.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+
+            <div class="faq-item">
+              <h3>How do I contact support if I have an issue?</h3>
+              <div class="faq-content">
+                <p>You can reach out to us via our chatbot or email <strong>support@plantxpert.com</strong> for assistance.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+
+          </div>
+
+        </div><!-- End Faq Column-->
+
+      </div>
+
+    </div>
+
+  </section><!-- /Faq Section -->
+</body>
+{% endblock body %}

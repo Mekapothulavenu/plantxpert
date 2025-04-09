@@ -1,0 +1,21 @@
+{
+  "ants": 0,
+  "aphids": 1,
+  "armyworm": 2,
+  "bees": 3,
+  "beetle": 4,
+  "bollworm": 5,
+  "catterpillar": 6,
+  "earthworms": 7,
+  "earwig": 8,
+  "grasshopper": 9,
+  "mites": 10,
+  "mosquito": 11,
+  "moth": 12,
+  "sawfly": 13,
+  "slug": 14,
+  "snail": 15,
+  "stem_borer": 16,
+  "wasp": 17,
+  "weevil": 18
+}

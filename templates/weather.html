@@ -1,0 +1,271 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Weather Updates
+{% endblock title %}
+{% block header_class %}bg-dark{% endblock %}
+
+
+{% block body %}
+  <!-- Weather & Agriculture Insights Section -->
+<section id="weather" class="weather section">
+
+  <div class="container section-title text-center" data-aos="fade-up">
+      <h2>Weather Forecast</h2>
+      <p><span>Get Accurate</span> <span class="description-title">Weather & Agriculture Insights</span></p>
+  </div>
+
+  <div class="container">
+
+      <div class="row gy-5">
+
+          <div class="content col-xl-5 d-flex flex-column" data-aos="fade-up" data-aos-delay="100">
+              <h3>Weather & Crop Guide</h3>
+              <p>
+                  Our AI-powered platform provides accurate weather forecasts, rainfall predictions, and crop recommendations to help farmers make the best decisions.
+              </p>
+              <form method="GET" class="mb-4">
+                  <input type="text" name="place" class="form-control" placeholder="Enter city, village, mandal, or district" required>
+                  <button type="submit" class="btn weather-btn mt-2">Check Weather <i class="bi bi-arrow-right"></i></button>
+              </form>    
+          </div>
+
+          <div class="col-xl-7" data-aos="fade-up" data-aos-delay="200">
+              <div class="row gy-4 row-cols-1 row-cols-md-2">
+
+                  <div class="col icon-box position-relative text-center">
+                      <i class="bi bi-cloud-sun"></i>
+                      <h4><a href="#weather-Results" class="stretched-link">7-Day Forecast</a></h4>
+                      <p>Get real-time and weekly weather predictions for your city, including temperature, humidity, and rain probability.</p>
+                  </div>
+
+                  <div class="col icon-box position-relative text-center">
+                      <i class="bi bi-water"></i>
+                      <h4><a href="#weather-Results" class="stretched-link">Rainfall Predictions</a></h4>
+                      <p>Know the probability of rainfall to plan irrigation and crop scheduling effectively.</p>
+                  </div>
+
+                  <div class="col icon-box position-relative text-center">
+                      <i class="bi bi-tree"></i>
+                      <h4><a href="{% url 'crop_recommendation' %}" class="stretched-link">Best Crops to Grow</a></h4>
+                      <p>Based on the weather conditions, get AI-driven recommendations on which crops will thrive best.</p>
+                  </div>
+
+                  <div class="col icon-box position-relative text-center">
+                      <i class="bi bi-newspaper"></i>
+                      <h4><a href="{% url 'news' %}" class="stretched-link">Agricultural News Articles</a></h4>
+                      <p>Stay updated with farming trends, climate change effects, and government policies.</p>
+                  </div>
+
+              </div>
+          </div>
+
+      </div>
+
+  </div>
+
+</section>
+
+  
+
+
+
+  {% if forecast_list %}
+  <!-- Weather Section -->
+  <section id="weather-Results" class="weather-Results section">
+    
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>🌍 Weather in {{ city|title }}</h2>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+      <div class="row gy-4 justify-content-center">
+        {% for day in forecast_list %}
+          <div class="col-xl-3 col-md-6 d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="weather-Results-item position-relative text-center">
+              <h4>{{ day.date }}</h4>
+              <div class="weather-icon">
+                <img src="https://openweathermap.org/img/wn/{{ day.icon }}.png" alt="Weather icon">
+              </div>
+              <p><strong>{{ day.temp }}°C</strong></p>
+              <p>🌧 {{ day.description }}</p>
+              <p>💧 Humidity: {{ day.humidity }}%</p>
+              <p>🌦 Rain Probability: {{ day.rain_chance }}%</p>
+            </div>
+          </div><!-- End Weather Item -->
+        {% endfor %}
+      </div><!-- End Row -->
+    </div><!-- End Container -->
+    
+
+  </section><!-- End Weather Section -->
+
+
+
+<!-- Crop Suggestions Section -->
+<section class="container mt-5">
+  <div class="text-center" data-aos="fade-up">
+      <h2>🌾 Recommended Crops</h2>
+  </div>
+
+  <div class="row justify-content-center">
+      <div class="col-md-6">
+          <div class="crop-card text-center" data-aos="fade-up" data-aos-delay="100">
+              <h5>Based on the weather, you can grow:</h5>
+              <ul>
+                  {% for crop in crop_suggestions %}
+                      <li>{{ crop }}</li>
+                  {% endfor %}
+              </ul>
+          </div>
+      </div>
+  </div>
+</section>
+{% endif %}
+
+
+<!-- Agricultural News Section -->
+<section id="news" class="news section">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>📰 Agricultural Articles</h2>
+  </div>
+
+  <div class="container">
+    <div class="row gy-4 justify-content-center">
+      {% for article in articles %}
+        <div class="col-xl-4 col-md-6 d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="100">
+          <div class="agri-news">
+            <div class="news-card">
+              <div class="news-img {% if not article.image %}no-image{% endif %}">
+                {% if article.image %}
+                  <img src="{{ article.image }}" alt="News Image" class="img-fluid rounded">
+                {% else %}
+                  <img src="static/images/default-news.jpg" alt="No Image Available" class="img-fluid rounded">
+                {% endif %}
+              </div>
+              <div class="news-info">
+                <h4><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></h4>
+                <p>{{ article.snippet }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- FAQ Section -->
+<section id="faq" class="faq section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Frequently Asked Questions</h2>
+    <p><span>PlantXpert</span> <span class="description-title">Weather Assistance</span></p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <div class="row justify-content-center">
+
+      <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="faq-container">
+
+          <div class="faq-item faq-active">
+            <h3>How does PlantXpert provide weather updates?</h3>
+            <div class="faq-content">
+              <p>PlantXpert fetches real-time weather data from the OpenWeather API, providing temperature, humidity, precipitation, and other vital weather details.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3>How often is the weather data updated?</h3>
+            <div class="faq-content">
+              <p>Weather data is updated every few minutes to ensure accuracy and reliability for farmers and agricultural planning.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3>Can I check weather forecasts for the upcoming days?</h3>
+            <div class="faq-content">
+              <p>Yes, PlantXpert provides a detailed weather forecast for the next 7 days to help users plan agricultural activities accordingly.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3>Does the app provide weather alerts?</h3>
+            <div class="faq-content">
+              <p>Yes, PlantXpert sends weather alerts for extreme conditions like storms, heavy rainfall, and drought warnings.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3>Can I get crop suggestions based on the weather?</h3>
+            <div class="faq-content">
+              <p>Yes, based on the weather conditions in your area, PlantXpert recommends the best crops suitable for cultivation.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3>Does PlantXpert provide soil moisture and rainfall predictions?</h3>
+            <div class="faq-content">
+              <p>Yes, we provide rainfall predictions and estimated soil moisture levels to help farmers make informed irrigation decisions.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3>Can I check weather data for different locations?</h3>
+            <div class="faq-content">
+              <p>Yes, users can search and view weather information for multiple locations to monitor different farmlands.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3>How does weather impact plant disease detection?</h3>
+            <div class="faq-content">
+              <p>Weather conditions such as humidity and temperature affect plant diseases. PlantXpert considers these factors when providing disease detection results.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3>Does the app provide agricultural tips based on weather conditions?</h3>
+            <div class="faq-content">
+              <p>Yes, PlantXpert gives farming tips and best practices tailored to current and upcoming weather conditions.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3>How do I contact support for weather-related issues?</h3>
+            <div class="faq-content">
+              <p>You can contact us through the chatbot or email <strong>support@plantxpert.com</strong> for assistance regarding weather updates.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+        </div>
+
+      </div><!-- End Faq Column-->
+
+    </div>
+
+  </div>
+
+</section><!-- /Faq Section -->
+
+{% endblock body %}
+  

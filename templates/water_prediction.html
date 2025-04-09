@@ -1,0 +1,238 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Water Requirement Prediction
+{% endblock title %}
+{% block header_class %}bg-dark{% endblock %}
+
+{% block body %}
+<!-- About Water Requirement Prediction Section -->
+<section id="water-requirement" class="about section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up" style='margin-top:60px'>
+    <h2>Water Requirement</h2>
+    <p><span>Learn More</span> <span class="description-title">About Water Prediction<br></span></p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <div class="row gy-5">
+
+      <div class="content col-xl-5 d-flex flex-column" data-aos="fade-up" data-aos-delay="100">
+        <h3>Smart Irrigation Planner</h3>
+        <p>
+          Our AI-powered Water Requirement Prediction tool helps farmers determine the ideal amount of water needed for their crops, based on environmental and crop-specific factors. Save water, boost yields, and practice sustainable farming.
+        </p>
+        <a href="#" class="about-btn align-self-center align-self-xl-start"><span>Know More</span> <i class="bi bi-chevron-right"></i></a>
+      </div>
+
+      <div class="col-xl-7" data-aos="fade-up" data-aos-delay="200">
+        <div class="row gy-4">
+
+          <div class="col-md-6 icon-box position-relative">
+            <i class="bi bi-droplet-half"></i>
+            <h4><a href="{% url 'water_prediction' %}" class="stretched-link">Optimal Water Usage</a></h4>
+            <p>Predict the exact water needs of your crops to avoid overwatering or underwatering, ensuring healthier plants.</p>
+          </div><!-- Icon-Box -->
+
+          <div class="col-md-6 icon-box position-relative">
+            <i class="bi bi-globe"></i>
+            <h4><a href="{% url 'water_prediction' %}" class="stretched-link">Climate-Aware Insights</a></h4>
+            <p>Adapt your irrigation plan based on temperature, humidity, and rainfall data specific to your region.</p>
+          </div><!-- Icon-Box -->
+
+          <div class="col-md-6 icon-box position-relative">
+            <i class="bi bi-currency-dollar"></i>
+            <h4><a href="{% url 'water_prediction' %}" class="stretched-link">Cost Efficiency</a></h4>
+            <p>Cut down on water bills and energy costs by using only the necessary amount of water for your crops.</p>
+          </div><!-- Icon-Box -->
+
+          <div class="col-md-6 icon-box position-relative">
+            <i class="bi bi-cpu"></i>
+            <h4><a href="{% url 'water_prediction' %}" class="stretched-link">AI-Powered Accuracy</a></h4>
+            <p>Get precise water recommendations using advanced machine learning models trained on agricultural datasets.</p>
+          </div><!-- Icon-Box -->
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section><!-- /About Water Requirement Prediction Section -->
+
+<!-- Water Requirement Prediction Section -->
+<section id="water-requirement" class="crop-recommendation py-5">
+  <div class="container text-center" data-aos="fade-up">
+    <h2>💧 Water Requirement Prediction</h2>
+    <p>Enter crop and environmental data to estimate total water needed. 🚿</p>
+
+    {% if prediction %}
+    <div class="result-card mt-4 p-4">
+      <h4>Water Needed for <strong>{{ crop|title }}</strong> on <strong>{{ acre }} acre(s)</strong>: <strong>{{ prediction }} liters</strong></h4>
+      <div class="emoji display-4">{{ emoji }}</div>
+    </div>
+    {% endif %}
+
+    {% if error %}
+    <div class="alert alert-danger mt-3">{{ error }}</div>
+    {% endif %}
+
+    <form method="POST" action="" class="mt-4" data-aos="fade-up" data-aos-delay="100">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <label for="soil_moisture">Soil Moisture (%)</label>
+          <input type="number" name="soil_moisture" step="0.1" class="form-control" required>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="temperature">Temperature (°C)</label>
+          <input type="number" name="temperature" step="0.1" class="form-control" required>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="humidity">Humidity (%)</label>
+          <input type="number" name="humidity" step="0.1" class="form-control" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <label for="rainfall">Rainfall (mm)</label>
+          <input type="number" name="rainfall" step="0.1" class="form-control" required>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="acre">Land Area (in acres)</label>
+          <input type="number" name="acre" step="0.1" class="form-control" required>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="crop">Crop</label>
+          <select name="crop" class="form-control" required>
+            <option value="" disabled selected>Select Crop</option>
+            {% for c in crops %}
+            <option value="{{ c }}">{{ c|title }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success px-4">💧 Predict Water</button>
+      <div class="text-center mt-3">
+        <p>Need help? <a href="{% url 'assistant' %}">🤖 Ask PlantXpert-Assistant</a></p>
+      </div>
+    </form>
+  </div>
+</section>
+
+  
+
+<section id="water-faq" class="faq section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Frequently Asked Questions</h2>
+    <p><span>Water Requirement</span> <span class="description-title">System Help</span></p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <div class="row justify-content-center">
+
+      <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="faq-container">
+
+          <div class="faq-item faq-active">
+            <h3>What is the Water Requirement Prediction System?</h3>
+            <div class="faq-content">
+              <p>It’s an AI-based tool that predicts how much water is needed for a specific crop based on various environmental conditions and acreage.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>What input details are required?</h3>
+            <div class="faq-content">
+              <p>You need to provide Soil Moisture, Temperature, Humidity, Rainfall, Acreage of the field, and the Crop type.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>How does the system calculate water needs?</h3>
+            <div class="faq-content">
+              <p>It uses a machine learning model (Random Forest) trained on real agricultural datasets to estimate total water requirements.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>Why do I need to enter crop type?</h3>
+            <div class="faq-content">
+              <p>Each crop has unique water needs. The system uses crop-specific data to give more accurate predictions.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>Can I use this for any crop?</h3>
+            <div class="faq-content">
+              <p>The tool supports major crops like wheat, rice, maize, sugarcane, tomato, cotton, and more listed in the crop selector.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>Is login required to use this feature?</h3>
+            <div class="faq-content">
+              <p>Yes, users must be logged in to access the water prediction feature to ensure security and personalized session tracking.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>How accurate is the prediction?</h3>
+            <div class="faq-content">
+              <p>Predictions are based on machine learning and provide a high accuracy level. However, actual conditions may vary, so use results as a guideline.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>What unit is the water requirement shown in?</h3>
+            <div class="faq-content">
+              <p>The output is shown in total liters of water required based on the given acreage and input conditions.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>Is my data saved?</h3>
+            <div class="faq-content">
+              <p>Your prediction result is stored temporarily in your session for immediate display, but not permanently saved unless integrated with a user history system.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3>Where can I get help if something goes wrong?</h3>
+            <div class="faq-content">
+              <p>You can reach out to <strong>support@plantxpert.com</strong> or use the built-in PlantXpert Assistant for help with input or prediction issues.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+        </div>
+
+      </div><!-- End Faq Column -->
+
+    </div>
+
+  </div>
+
+</section><!-- /Water Prediction FAQ Section -->
+
+  
+{% endblock body %}
+  

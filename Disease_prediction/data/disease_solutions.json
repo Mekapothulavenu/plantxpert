@@ -1,0 +1,268 @@
+{
+  "Apple___Apple_scab": {
+    "description": "Apple is a disease in Apple scab. It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Apple___Black_rot": {
+    "description": "Apple is a disease in Black rot. It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Apple___Cedar_apple_rust": {
+    "description": "Apple is a disease in Cedar apple rust. It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Apple___healthy": {
+    "description": "The Apple plant appears healthy with no visible disease symptoms.",
+    "cure": "No action needed.",
+    "organic_solution": "Maintain organic practices and proper care routines.",
+    "chemical_solution": "None required.",
+    "preventive_measures": "Continue monitoring and use preventive practices like crop rotation and good hygiene."
+  },
+  "Blueberry___healthy": {
+    "description": "The Blueberry plant appears healthy with no visible disease symptoms.",
+    "cure": "No action needed.",
+    "organic_solution": "Maintain organic practices and proper care routines.",
+    "chemical_solution": "None required.",
+    "preventive_measures": "Continue monitoring and use preventive practices like crop rotation and good hygiene."
+  },
+  "Cherry_(including_sour)___Powdery_mildew": {
+    "description": "Cherry (including sour) is a disease in Powdery mildew. It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Cherry_(including_sour)___healthy": {
+    "description": "The Cherry_(including_sour) plant appears healthy with no visible disease symptoms.",
+    "cure": "No action needed.",
+    "organic_solution": "Maintain organic practices and proper care routines.",
+    "chemical_solution": "None required.",
+    "preventive_measures": "Continue monitoring and use preventive practices like crop rotation and good hygiene."
+  },
+  "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot": {
+    "description": "Corn (maize) is a disease in Cercospora leaf spot Gray leaf spot. It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Corn_(maize)___Common_rust_": {
+    "description": "Corn (maize) is a disease in Common rust . It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Corn_(maize)___Northern_Leaf_Blight": {
+    "description": "Corn (maize) is a disease in Northern Leaf Blight. It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Corn_(maize)___healthy": {
+    "description": "The Corn_(maize) plant appears healthy with no visible disease symptoms.",
+    "cure": "No action needed.",
+    "organic_solution": "Maintain organic practices and proper care routines.",
+    "chemical_solution": "None required.",
+    "preventive_measures": "Continue monitoring and use preventive practices like crop rotation and good hygiene."
+  },
+  "Grape___Black_rot": {
+    "description": "Grape is a disease in Black rot. It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Grape___Esca_(Black_Measles)": {
+    "description": "Grape is a disease in Esca (Black Measles). It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)": {
+    "description": "Grape is a disease in Leaf blight (Isariopsis Leaf Spot). It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Grape___healthy": {
+    "description": "The Grape plant appears healthy with no visible disease symptoms.",
+    "cure": "No action needed.",
+    "organic_solution": "Maintain organic practices and proper care routines.",
+    "chemical_solution": "None required.",
+    "preventive_measures": "Continue monitoring and use preventive practices like crop rotation and good hygiene."
+  },
+  "Orange___Haunglongbing_(Citrus_greening)": {
+    "description": "Orange is a disease in Haunglongbing (Citrus greening). It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Peach___Bacterial_spot": {
+    "description": "Peach is a disease in Bacterial spot. It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Peach___healthy": {
+    "description": "The Peach plant appears healthy with no visible disease symptoms.",
+    "cure": "No action needed.",
+    "organic_solution": "Maintain organic practices and proper care routines.",
+    "chemical_solution": "None required.",
+    "preventive_measures": "Continue monitoring and use preventive practices like crop rotation and good hygiene."
+  },
+  "Pepper,_bell___Bacterial_spot": {
+    "description": "Pepper, bell is a disease in Bacterial spot. It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Pepper,_bell___healthy": {
+    "description": "The Pepper,_bell plant appears healthy with no visible disease symptoms.",
+    "cure": "No action needed.",
+    "organic_solution": "Maintain organic practices and proper care routines.",
+    "chemical_solution": "None required.",
+    "preventive_measures": "Continue monitoring and use preventive practices like crop rotation and good hygiene."
+  },
+  "Potato___Early_blight": {
+    "description": "Potato is a disease in Early blight. It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Potato___Late_blight": {
+    "description": "Potato is a disease in Late blight. It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Potato___healthy": {
+    "description": "The Potato plant appears healthy with no visible disease symptoms.",
+    "cure": "No action needed.",
+    "organic_solution": "Maintain organic practices and proper care routines.",
+    "chemical_solution": "None required.",
+    "preventive_measures": "Continue monitoring and use preventive practices like crop rotation and good hygiene."
+  },
+  "Raspberry___healthy": {
+    "description": "The Raspberry plant appears healthy with no visible disease symptoms.",
+    "cure": "No action needed.",
+    "organic_solution": "Maintain organic practices and proper care routines.",
+    "chemical_solution": "None required.",
+    "preventive_measures": "Continue monitoring and use preventive practices like crop rotation and good hygiene."
+  },
+  "Soybean___healthy": {
+    "description": "The Soybean plant appears healthy with no visible disease symptoms.",
+    "cure": "No action needed.",
+    "organic_solution": "Maintain organic practices and proper care routines.",
+    "chemical_solution": "None required.",
+    "preventive_measures": "Continue monitoring and use preventive practices like crop rotation and good hygiene."
+  },
+  "Squash___Powdery_mildew": {
+    "description": "Squash is a disease in Powdery mildew. It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Strawberry___Leaf_scorch": {
+    "description": "Strawberry is a disease in Leaf scorch. It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Strawberry___healthy": {
+    "description": "The Strawberry plant appears healthy with no visible disease symptoms.",
+    "cure": "No action needed.",
+    "organic_solution": "Maintain organic practices and proper care routines.",
+    "chemical_solution": "None required.",
+    "preventive_measures": "Continue monitoring and use preventive practices like crop rotation and good hygiene."
+  },
+  "Tomato___Bacterial_spot": {
+    "description": "Tomato is a disease in Bacterial spot. It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Tomato___Early_blight": {
+    "description": "Tomato is a disease in Early blight. It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Tomato___Late_blight": {
+    "description": "Tomato is a disease in Late blight. It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Tomato___Leaf_Mold": {
+    "description": "Tomato is a disease in Leaf Mold. It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Tomato___Septoria_leaf_spot": {
+    "description": "Tomato is a disease in Septoria leaf spot. It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Tomato___Spider_mites Two-spotted_spider_mite": {
+    "description": "Tomato is a disease in Spider mites Two-spotted spider mite. It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Tomato___Target_Spot": {
+    "description": "Tomato is a disease in Target Spot. It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+    "description": "Tomato is a disease in Tomato Yellow Leaf Curl Virus. It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Tomato___Tomato_mosaic_virus": {
+    "description": "Tomato is a disease in Tomato mosaic virus. It affects the plant's health and yield.",
+    "cure": "Remove infected parts and dispose of them properly. Maintain plant hygiene.",
+    "organic_solution": "Apply neem oil, compost tea, or baking soda spray as a natural remedy.",
+    "chemical_solution": "Use recommended fungicides or pesticides as per agricultural guidelines.",
+    "preventive_measures": "Practice crop rotation, ensure good air circulation, avoid overhead watering, and use disease-resistant varieties."
+  },
+  "Tomato___healthy": {
+    "description": "The Tomato plant appears healthy with no visible disease symptoms.",
+    "cure": "No action needed.",
+    "organic_solution": "Maintain organic practices and proper care routines.",
+    "chemical_solution": "None required.",
+    "preventive_measures": "Continue monitoring and use preventive practices like crop rotation and good hygiene."
+  }
+}

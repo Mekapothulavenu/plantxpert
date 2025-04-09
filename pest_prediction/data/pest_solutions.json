@@ -1,0 +1,135 @@
+{
+  "ants": {
+    "description": "Ants are attracted to plants for food and water. Some species may protect aphids.",
+    "cure": "Remove aphids to reduce ant presence.",
+    "organic_solution": "Sprinkle cinnamon or citrus peels.",
+    "chemical_solution": "Use ant bait or mild pesticide.",
+    "preventive_measures": "Keep area dry and clean."
+  },
+  "aphids": {
+    "description": "Tiny insects that suck sap from plants and transmit viruses.",
+    "cure": "Spray with water or neem oil.",
+    "organic_solution": "Neem oil, ladybugs.",
+    "chemical_solution": "Insecticidal soap or malathion.",
+    "preventive_measures": "Remove weeds and use reflective mulch."
+  },
+  "armyworm": {
+    "description": "Larvae that feed on crops in large numbers overnight.",
+    "cure": "Handpick and destroy them if small in number.",
+    "organic_solution": "Bacillus thuringiensis (Bt).",
+    "chemical_solution": "Permethrin, spinosad.",
+    "preventive_measures": "Early crop monitoring and pheromone traps."
+  },
+  "bees": {
+    "description": "Bees are beneficial pollinators and not harmful to plants.",
+    "cure": "No cure required unless allergic risk.",
+    "organic_solution": "Avoid disturbing their hives.",
+    "chemical_solution": "Avoid pesticide use near bee habitats.",
+    "preventive_measures": "Create pollinator-friendly zones."
+  },
+  "beetle": {
+    "description": "Beetles chew on leaves, fruits, and stems of plants.",
+    "cure": "Handpick or trap beetles manually.",
+    "organic_solution": "Neem oil or diatomaceous earth.",
+    "chemical_solution": "Carbaryl or pyrethrin-based insecticides.",
+    "preventive_measures": "Use row covers and maintain plant hygiene."
+  },
+  "bollworm": {
+    "description": "Caterpillars that bore into cotton bolls and fruits.",
+    "cure": "Remove infected plant parts.",
+    "organic_solution": "Release Trichogramma wasps or Bt spray.",
+    "chemical_solution": "Spinosad, emamectin benzoate.",
+    "preventive_measures": "Use pest-resistant crop varieties."
+  },
+  "catterpillar": {
+    "description": "Caterpillars chew on leaves and can cause defoliation.",
+    "cure": "Pick and destroy manually.",
+    "organic_solution": "Neem oil, Bt, or garlic spray.",
+    "chemical_solution": "Insecticides like permethrin or carbaryl.",
+    "preventive_measures": "Use nets and encourage natural predators."
+  },
+  "earthworms": {
+    "description": "Earthworms are beneficial and improve soil health.",
+    "cure": "No action needed.",
+    "organic_solution": "None required.",
+    "chemical_solution": "Avoid using harmful chemicals.",
+    "preventive_measures": "Support with compost and organic matter."
+  },
+  "earwig": {
+    "description": "Nocturnal insects that feed on flowers and leaves.",
+    "cure": "Trap them using rolled newspaper or oil traps.",
+    "organic_solution": "Diatomaceous earth around plants.",
+    "chemical_solution": "Insecticidal soap or pyrethrin.",
+    "preventive_measures": "Eliminate damp hiding places."
+  },
+  "grasshopper": {
+    "description": "Feeds on leaves and shoots, causing massive foliage loss.",
+    "cure": "Spray neem or garlic extract.",
+    "organic_solution": "Neem oil, birds as natural predators.",
+    "chemical_solution": "Malathion or carbaryl.",
+    "preventive_measures": "Use netting and maintain healthy soil."
+  },
+  "mites": {
+    "description": "Microscopic pests that suck sap and cause leaf yellowing.",
+    "cure": "Spray with miticide or water blast.",
+    "organic_solution": "Neem oil or insecticidal soap.",
+    "chemical_solution": "Abamectin or bifenthrin.",
+    "preventive_measures": "Keep humidity high and remove infested parts."
+  },
+  "mosquito": {
+    "description": "Do not harm plants but can breed in stagnant water nearby.",
+    "cure": "Eliminate standing water.",
+    "organic_solution": "Add mosquito fish or BTI to water.",
+    "chemical_solution": "Larvicides for stagnant water.",
+    "preventive_measures": "Keep pots and trays dry."
+  },
+  "moth": {
+    "description": "Moth larvae feed on leaves, stems, and fruits.",
+    "cure": "Attract birds or trap adults.",
+    "organic_solution": "Use pheromone traps or Bt.",
+    "chemical_solution": "Spinosad or pyrethroids.",
+    "preventive_measures": "Use light traps and monitor regularly."
+  },
+  "sawfly": {
+    "description": "Larvae resemble caterpillars and feed on foliage.",
+    "cure": "Handpick and destroy larvae.",
+    "organic_solution": "Neem oil or soap spray.",
+    "chemical_solution": "Pyrethrin or spinosad.",
+    "preventive_measures": "Inspect plants early and often."
+  },
+  "slug": {
+    "description": "Feed on leaves, fruits, and seedlings during damp conditions.",
+    "cure": "Handpick or use beer traps.",
+    "organic_solution": "Diatomaceous earth or copper tape.",
+    "chemical_solution": "Iron phosphate or metaldehyde.",
+    "preventive_measures": "Reduce mulch and water early in the day."
+  },
+  "snail": {
+    "description": "Chew holes in leaves and stems; active in humid conditions.",
+    "cure": "Manually remove or trap them.",
+    "organic_solution": "Crushed eggshells, copper tape.",
+    "chemical_solution": "Slug pellets containing iron phosphate.",
+    "preventive_measures": "Avoid overwatering, use traps."
+  },
+  "stem_borer": {
+    "description": "Larvae bore into stems, weakening or killing the plant.",
+    "cure": "Cut and burn infested stems.",
+    "organic_solution": "Neem oil and Trichogramma egg parasitoids.",
+    "chemical_solution": "Carbofuran or chlorpyrifos.",
+    "preventive_measures": "Field sanitation and crop rotation."
+  },
+  "wasp": {
+    "description": "Generally beneficial as pollinators and pest predators.",
+    "cure": "No cure needed unless aggressive.",
+    "organic_solution": "Avoid disturbing nests.",
+    "chemical_solution": "Use insecticide spray only if needed.",
+    "preventive_measures": "Seal crevices in structures nearby."
+  },
+  "weevil": {
+    "description": "Damage leaves, fruits, and roots by chewing.",
+    "cure": "Use pheromone traps or manual removal.",
+    "organic_solution": "Neem spray and diatomaceous earth.",
+    "chemical_solution": "Imidacloprid or pyrethroids.",
+    "preventive_measures": "Use resistant varieties and crop rotation."
+  }
+}

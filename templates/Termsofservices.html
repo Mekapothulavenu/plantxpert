@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Terms of Services
+{% endblock title %}
+{% block header_class %}bg-dark{% endblock %}
+{% block body %}
+
+<section class="termsofservices py-5" style="background: #f6fff3;">
+  <div class="container">
+    <div class="text-center mb-5" style="margin-top: 60px;">
+      <h2 class="display-5 fw-bold text-success">🌿 PlantXpert Terms of Service</h2>
+      <p class="text-muted">Effective from <strong>April 6, 2025</strong></p>
+      <hr class="w-25 mx-auto border-success">
+    </div>
+
+    <div class="bg-white p-5 rounded-4 shadow border-start border-4 border-success">
+      <h4 class="fw-bold text-success mb-3"><i class="bi bi-leaf me-2"></i>1. Purpose of PlantXpert</h4>
+      <p>
+        PlantXpert is designed to support farmers and agricultural enthusiasts with AI-based plant diagnosis,
+        weather insights, and smart farming tools. Use our platform responsibly to make better agricultural decisions.
+      </p>
+
+      <h4 class="fw-bold text-success mt-4 mb-3"><i class="bi bi-person-lines-fill me-2"></i>2. User Responsibilities</h4>
+      <ul class="list-unstyled ps-3">
+        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Users must register and keep login credentials private.</li>
+        <li><i class="bi bi-check-circle-fill text-success me-2"></i> You are responsible for your actions on the platform.</li>
+        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Misuse or harmful activities are strictly prohibited.</li>
+      </ul>
+
+      <h4 class="fw-bold text-success mt-4 mb-3"><i class="bi bi-lightbulb-fill me-2"></i>3. AI Suggestions Disclaimer</h4>
+      <p>
+        Our recommendations are AI-generated and serve as assistance, not professional or certified agricultural advice.
+        Always consult with local experts before acting on critical crop decisions.
+      </p>
+
+      <h4 class="fw-bold text-success mt-4 mb-3"><i class="bi bi-shield-lock-fill me-2"></i>4. Data & Privacy</h4>
+      <p>
+        Your uploaded images, crop data, and preferences remain confidential. We do not sell or misuse your personal or farming data.
+      </p>
+
+      <h4 class="fw-bold text-success mt-4 mb-3"><i class="bi bi-exclamation-triangle-fill me-2"></i>5. Prohibited Activities</h4>
+      <ul class="list-unstyled ps-3">
+        <li><i class="bi bi-x-circle-fill text-danger me-2"></i> Uploading harmful or false data</li>
+        <li><i class="bi bi-x-circle-fill text-danger me-2"></i> Attempting to reverse engineer or misuse AI models</li>
+        <li><i class="bi bi-x-circle-fill text-danger me-2"></i> Violation of agricultural laws or ethical farming norms</li>
+      </ul>
+
+      <h4 class="fw-bold text-success mt-4 mb-3"><i class="bi bi-arrow-repeat me-2"></i>6. Service Changes</h4>
+      <p>
+        PlantXpert may update tools, AI models, or these terms as our services evolve. Continued usage implies your agreement to updates.
+      </p>
+
+      <h4 class="fw-bold text-success mt-4 mb-3"><i class="bi bi-emoji-frown me-2"></i>7. Limitations</h4>
+      <p>
+        PlantXpert is not liable for losses or decisions made based on AI advice. Use insights as supportive tools, not final verdicts.
+      </p>
+
+      <h4 class="fw-bold text-success mt-4 mb-3"><i class="bi bi-door-closed me-2"></i>8. Account Termination</h4>
+      <p>
+        We may suspend or terminate users who misuse our services, breach terms, or disrupt the platform's integrity.
+      </p>
+
+      <h4 class="fw-bold text-success mt-4 mb-3"><i class="bi bi-envelope-open me-2"></i>9. Contact Us</h4>
+      <p>
+        For support or inquiries, feel free to email us at:
+        <a href="mailto:support@plantxpert.com" class="fw-semibold text-decoration-none text-success">support@plantxpert.com</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+{% endblock body %}

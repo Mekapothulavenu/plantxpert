@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Privacy Policy
+{% endblock title %}
+{% block header_class %}bg-dark{% endblock %}
+{% block body %}
+
+<section class="privacy-policy py-5" style="background: #f6fff3;">
+  <div class="container">
+    <div class="text-center mb-5" style="margin-top: 60px;">
+      <h2 class="display-5 fw-bold text-success">🔒 PlantXpert Privacy Policy</h2>
+      <p class="text-muted">Effective from <strong>April 6, 2025</strong></p>
+      <hr class="w-25 mx-auto border-success">
+    </div>
+
+    <div class="bg-white p-5 rounded-4 shadow border-start border-4 border-success">
+      <h4 class="fw-bold text-success mb-3"><i class="bi bi-shield-lock-fill me-2"></i>1. Data Collection</h4>
+      <p>
+        We collect user information such as name, email, uploaded images, crop details, and preferences to enhance your experience on PlantXpert.
+      </p>
+
+      <h4 class="fw-bold text-success mt-4 mb-3"><i class="bi bi-database-fill-check me-2"></i>2. Data Usage</h4>
+      <p>
+        The collected data is used for personalized farming insights, AI predictions, service improvements, and support purposes only.
+      </p>
+
+      <h4 class="fw-bold text-success mt-4 mb-3"><i class="bi bi-shield-check me-2"></i>3. Data Security</h4>
+      <p>
+        We prioritize your privacy and safeguard your data using modern security practices including encryption, secure storage, and access control.
+      </p>
+
+      <h4 class="fw-bold text-success mt-4 mb-3"><i class="bi bi-person-fill-lock me-2"></i>4. User Control</h4>
+      <p>
+        You have the right to access, update, or request deletion of your data. Simply email us and we’ll handle your request promptly.
+      </p>
+
+      <h4 class="fw-bold text-success mt-4 mb-3"><i class="bi bi-diagram-3-fill me-2"></i>5. Third-Party Services</h4>
+      <p>
+        We use third-party APIs like weather and map services. These may access basic information such as your location for service functionality, but no personal data is shared for advertising.
+      </p>
+
+      <h4 class="fw-bold text-success mt-4 mb-3"><i class="bi bi-arrow-repeat me-2"></i>6. Policy Updates</h4>
+      <p>
+        We may update this policy as needed. Continued use of PlantXpert after changes implies acceptance of the updated policy.
+      </p>
+
+      <h4 class="fw-bold text-success mt-4 mb-3"><i class="bi bi-emoji-neutral me-2"></i>7. No Data Selling</h4>
+      <p>
+        We do not sell, rent, or trade your data. Your privacy is respected at all levels of our platform operations.
+      </p>
+
+      <h4 class="fw-bold text-success mt-4 mb-3"><i class="bi bi-envelope-open me-2"></i>8. Contact Us</h4>
+      <p>
+        For privacy questions or concerns, contact us at:
+        <a href="mailto:support@plantxpert.com" class="fw-semibold text-decoration-none text-success">support@plantxpert.com</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+{% endblock body %}
