@@ -110,9 +110,16 @@ Visit `http://127.0.0.1:8000` in your browser.
 
 > You can add screenshots in a `/screenshots` folder and link them here:
 
-![Home Page](screenshots/home.png)
-![Disease Detection](screenshots/disease.png)
-![Crop Recommendation](screenshots/crop.png)
+### 🏠 Home Page
+
+![Home Page 1](screenshots/home.png) 
+![Home Page 2](screenshots/home1.png)  
+![Home Page 3](screenshots/home2.png)
+![Home Page 4](screenshots/home3.png)  
+![Home Page 5](screenshots/home4.png)  
+![Home Page 6](screenshots/home5.png)
+![Home Page 7](screenshots/home6.png)
+![Home Page 8](screenshots/home7.png)
 
 ---
 
