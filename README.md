@@ -136,8 +136,8 @@ Visit `http://127.0.0.1:8000` in your browser.
 ## 🙌 Contributors
 
 * 👨‍💻 [Mekapothula venu](https://github.com/Mekapothulavenu/)
-* 👩‍💻 [Collaborator Name](https://github.com/collaboratorusername)
-* 👩‍💻 [Collaborator Name](https://github.com/collaboratorusername)
+* 👩‍💻 [Kunduru Anusha](https://github.com/collaboratorusername)
+* 👩‍💻 [Sontyana Nandini Devi](https://github.com/collaboratorusername)
 
 ---
 
