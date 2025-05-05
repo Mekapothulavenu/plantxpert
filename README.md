@@ -101,6 +101,11 @@ Visit `http://127.0.0.1:8000` in your browser.
 
 ---
 
+🎥 Live Demo Video  
+[![Watch the demo](https://img.youtube.com/vi/_YNgk7NjiMs/0.jpg)](https://www.youtube.com/watch?v=_YNgk7NjiMs)
+
+
+
 ## 📷 Screenshots (Optional)
 
 > You can add screenshots in a `/screenshots` folder and link them here:
